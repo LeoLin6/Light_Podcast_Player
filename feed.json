@@ -1,0 +1,1614 @@
+{
+  "feedUrl": "https://anchor.fm/s/104b7e58/podcast/rss",
+  "title": "Goddamn Gamecube",
+  "language": "en",
+  "lastBuildDate": "Sat, 21 Mar 2026 08:59:25 GMT",
+  "items": [
+    {
+      "guid": "f582a8fb-05b7-4f32-a444-1bb3adede183",
+      "title": "GDC2026 Interview: Chris Zukowski - How To Market A Game",
+      "pubDate": "Mon, 09 Mar 2026 20:15:36 GMT",
+      "duration": "00:28:54",
+      "enclosure": {
+        "url": "https://anchor.fm/s/104b7e58/podcast/play/116649113/https%3A%2F%2Fd3ctxlq1ktw2nl.cloudfront.net%2Fstaging%2F2026-2-9%2F419644828-44100-2-d65b6b01bf57b.m4a",
+        "length": "28055320",
+        "type": "audio/x-m4a"
+      }
+    },
+    {
+      "guid": "f19660a2-c2c0-40f1-9911-8b1c4cb20903",
+      "title": "Undertale Review: A Decade of Cultural Impact",
+      "pubDate": "Fri, 09 Jan 2026 06:00:00 GMT",
+      "duration": "00:55:48",
+      "enclosure": {
+        "url": "https://traffic.megaphone.fm/APO6280128455.mp3",
+        "length": "53580277",
+        "type": "audio/mpeg"
+      }
+    },
+    {
+      "guid": "2e5c1656-e7e0-476c-bc26-699026cfaded",
+      "title": "Clair Obscur: Expedition 33 Review - Is It Overrated?",
+      "pubDate": "Fri, 24 Oct 2025 05:00:00 GMT",
+      "duration": "01:17:50",
+      "enclosure": {
+        "url": "https://traffic.megaphone.fm/APO7177376533.mp3",
+        "length": "74736117",
+        "type": "audio/mpeg"
+      }
+    },
+    {
+      "guid": "5576be50-eaa1-4e62-bede-57eb5482efa0",
+      "title": "Silent Hill F Review: An Earnest Failure",
+      "pubDate": "Fri, 17 Oct 2025 05:00:00 GMT",
+      "duration": "01:09:42",
+      "enclosure": {
+        "url": "https://traffic.megaphone.fm/APO5076889484.mp3",
+        "length": "66925714",
+        "type": "audio/mpeg"
+      }
+    },
+    {
+      "guid": "8f572986-ce90-475c-ba83-5a96b951e838",
+      "title": "Crow Country Review: A Flawed, but Thoughtful, Retro-Horror",
+      "pubDate": "Fri, 09 May 2025 05:00:00 GMT",
+      "duration": "00:35:33",
+      "enclosure": {
+        "url": "https://traffic.megaphone.fm/APO9787553636.mp3",
+        "length": "34134726",
+        "type": "audio/mpeg"
+      }
+    },
+    {
+      "guid": "ac8ffedf-f0c5-46d2-a5fc-f8c2f70486a6",
+      "title": "Braid Critical Review: Indie’s Most Historic Puzzle Platformer?",
+      "pubDate": "Fri, 02 May 2025 05:00:00 GMT",
+      "duration": "00:25:33",
+      "enclosure": {
+        "url": "https://traffic.megaphone.fm/APO2443824134.mp3",
+        "length": "24540055",
+        "type": "audio/mpeg"
+      }
+    },
+    {
+      "guid": "5e1449da-32d1-47fd-a2fb-6dcd7c611d0a",
+      "title": "The Game Awards: Our In-Person Experience, Celebrity Encounters, and History",
+      "pubDate": "Fri, 25 Apr 2025 05:00:00 GMT",
+      "duration": "00:52:33",
+      "enclosure": {
+        "url": "https://traffic.megaphone.fm/APO6563694215.mp3",
+        "length": "50459794",
+        "type": "audio/mpeg"
+      }
+    },
+    {
+      "guid": "b069190b-8e11-4d14-8ef3-3f91d9600117",
+      "title": "Alan Wake Review: Boring, Dull, But Memorable?",
+      "pubDate": "Fri, 18 Apr 2025 12:17:47 GMT",
+      "duration": "01:05:29",
+      "enclosure": {
+        "url": "https://traffic.megaphone.fm/APO3227780887.mp3",
+        "length": "62866076",
+        "type": "audio/mpeg"
+      }
+    },
+    {
+      "guid": "69d1d552-037a-49fb-b2e0-b406d0666f20",
+      "title": "Quantum Break Review: A Microsoft Marketing Disaster",
+      "pubDate": "Fri, 11 Apr 2025 05:00:00 GMT",
+      "duration": "00:39:37",
+      "enclosure": {
+        "url": "https://traffic.megaphone.fm/APO7535017577.mp3",
+        "length": "38040555",
+        "type": "audio/mpeg"
+      }
+    },
+    {
+      "guid": "07e4b058-8629-47d0-bf9d-5f9a2739c413",
+      "title": "Control Critical Review: Bizarre, Confusing, Nonsense",
+      "pubDate": "Fri, 04 Apr 2025 05:00:00 GMT",
+      "duration": "00:58:17",
+      "enclosure": {
+        "url": "https://traffic.megaphone.fm/APO1892142336.mp3",
+        "length": "55965988",
+        "type": "audio/mpeg"
+      }
+    },
+    {
+      "guid": "9ff3b4f2-3946-42d8-bc1b-e88cb51647c2",
+      "title": "Alan Wake 2 Critical Review: An Overrated Mess",
+      "pubDate": "Fri, 28 Mar 2025 05:00:00 GMT",
+      "duration": "01:20:34",
+      "enclosure": {
+        "url": "https://traffic.megaphone.fm/APO2950050154.mp3",
+        "length": "77350870",
+        "type": "audio/mpeg"
+      }
+    },
+    {
+      "guid": "cd851812-ab80-4079-9e1c-0da7785618b8",
+      "title": "GDC2025: Lunacid Interview with Akuma Kira & Jarren Crist",
+      "pubDate": "Fri, 21 Mar 2025 17:00:00 GMT",
+      "duration": "00:13:55",
+      "enclosure": {
+        "url": "https://traffic.megaphone.fm/APO4999292318.mp3",
+        "length": "13367170",
+        "type": "audio/mpeg"
+      }
+    },
+    {
+      "guid": "62cca740-6b8c-47cb-82e0-5f0930b86f32",
+      "title": "GDC2025: Austin Wintory Exclusive Interview",
+      "pubDate": "Thu, 20 Mar 2025 20:00:00 GMT",
+      "duration": "00:15:17",
+      "enclosure": {
+        "url": "https://traffic.megaphone.fm/APO3320353296.mp3",
+        "length": "14683324",
+        "type": "audio/mpeg"
+      }
+    },
+    {
+      "guid": "0f29512b-1c3f-49f0-84db-09847a84ade9",
+      "title": "Senua's Saga Hellblade 2 Review: A Massive Disappointment",
+      "pubDate": "Fri, 14 Mar 2025 05:00:00 GMT",
+      "duration": "00:40:26",
+      "enclosure": {
+        "url": "https://traffic.megaphone.fm/APO7904187186.mp3",
+        "length": "38828826",
+        "type": "audio/mpeg"
+      }
+    },
+    {
+      "guid": "bf179408-31ff-44f9-8119-92d06793b6e2",
+      "title": "Silent Hill 2 Remake Review: The Best Game of 2024?",
+      "pubDate": "Fri, 07 Mar 2025 06:00:00 GMT",
+      "duration": "01:46:37",
+      "enclosure": {
+        "url": "https://traffic.megaphone.fm/APO3513760001.mp3",
+        "length": "102356114",
+        "type": "audio/mpeg"
+      }
+    },
+    {
+      "guid": "61f2dff9-15fa-4c42-b528-008a0253071d",
+      "title": "Lies of P Review: The Best Non-Fromsoft Souls-Like?",
+      "pubDate": "Fri, 28 Feb 2025 06:00:00 GMT",
+      "duration": "01:50:45",
+      "enclosure": {
+        "url": "https://traffic.megaphone.fm/APO4315822385.mp3",
+        "length": "106321711",
+        "type": "audio/mpeg"
+      }
+    },
+    {
+      "guid": "184ed6c0-076c-4c64-874f-924cf10aac04",
+      "title": "Season 6 Trailer",
+      "pubDate": "Mon, 24 Feb 2025 16:51:38 GMT",
+      "duration": "00:03:44",
+      "enclosure": {
+        "url": "https://anchor.fm/s/104b7e58/podcast/play/98834120/https%3A%2F%2Fd3ctxlq1ktw2nl.cloudfront.net%2Fstaging%2F2025-2-4%2F395954602-44100-2-0546bf402f1c.m4a",
+        "length": "3625011",
+        "type": "audio/x-m4a"
+      }
+    },
+    {
+      "guid": "f588ca18-827c-4899-84cc-b445aa210dbe",
+      "title": "Fallout TV Show Season 1 : Critical Review",
+      "pubDate": "Mon, 10 Jun 2024 05:00:00 GMT",
+      "duration": "01:09:08",
+      "enclosure": {
+        "url": "https://traffic.megaphone.fm/APO9852733040.mp3",
+        "length": "66368992",
+        "type": "audio/mpeg"
+      }
+    },
+    {
+      "guid": "2ecde19c-b972-4b18-bcbe-651c5e86a9a7",
+      "title": "Harold Halibut: Critical Review",
+      "pubDate": "Wed, 22 May 2024 05:00:00 GMT",
+      "duration": "00:51:09",
+      "enclosure": {
+        "url": "https://traffic.megaphone.fm/APO7184999391.mp3",
+        "length": "49107696",
+        "type": "audio/mpeg"
+      }
+    },
+    {
+      "guid": "46374e06-3cdd-443e-8e7d-6d307f71a526",
+      "title": "GDC 2024: Jordan Mechner Interview - The Creator of Prince of Persia",
+      "pubDate": "Tue, 26 Mar 2024 18:00:00 GMT",
+      "duration": "00:22:06",
+      "enclosure": {
+        "url": "https://traffic.megaphone.fm/APO4614270031.mp3",
+        "length": "21218115",
+        "type": "audio/mpeg"
+      }
+    },
+    {
+      "guid": "47d6acba-2f38-485c-810c-7c1683b9ad27",
+      "title": "Season 5 Finale: Answering Fan Questions!",
+      "pubDate": "Fri, 15 Mar 2024 05:00:00 GMT",
+      "duration": "01:43:33",
+      "enclosure": {
+        "url": "https://traffic.megaphone.fm/APO8477501003.mp3",
+        "length": "99419951",
+        "type": "audio/mpeg"
+      }
+    },
+    {
+      "guid": "1703a18a-0bf7-4428-99f0-ce47d77394a8",
+      "title": "Accessibility in Videogames: Physical, Hearing, & Visual Impairment",
+      "pubDate": "Fri, 08 Mar 2024 06:00:00 GMT",
+      "duration": "01:13:40",
+      "enclosure": {
+        "url": "https://traffic.megaphone.fm/APO1680124920.mp3",
+        "length": "70734994",
+        "type": "audio/mpeg"
+      }
+    },
+    {
+      "guid": "807a7cf0-8bea-4f76-98dc-c36db3386a50",
+      "title": "Final Fantasy XVI Review: A Cinematic Mess",
+      "pubDate": "Fri, 01 Mar 2024 06:00:00 GMT",
+      "duration": "01:49:50",
+      "enclosure": {
+        "url": "https://traffic.megaphone.fm/APO4322681934.mp3",
+        "length": "105449430",
+        "type": "audio/mpeg"
+      }
+    },
+    {
+      "guid": "4e7cd3bb-2a3d-46f7-bce4-bdd7059f845d",
+      "title": "Paper Mario The Thousand Year Door: Critical Review",
+      "pubDate": "Fri, 23 Feb 2024 06:00:00 GMT",
+      "duration": "01:47:55",
+      "enclosure": {
+        "url": "https://traffic.megaphone.fm/APO6327411211.mp3",
+        "length": "103612917",
+        "type": "audio/mpeg"
+      }
+    },
+    {
+      "guid": "b01d1722-1e4f-4afe-8994-e302acb10718",
+      "title": "Paper Mario: A Critical Review",
+      "pubDate": "Fri, 16 Feb 2024 06:00:00 GMT",
+      "duration": "01:24:46",
+      "enclosure": {
+        "url": "https://traffic.megaphone.fm/APO9593191994.mp3",
+        "length": "81385430",
+        "type": "audio/mpeg"
+      }
+    },
+    {
+      "guid": "3a447333-2210-4c8c-a259-2b1aeee3e9b4",
+      "title": "Super Mario RPG Remake: A Critical Review",
+      "pubDate": "Fri, 09 Feb 2024 06:00:00 GMT",
+      "duration": "01:13:17",
+      "enclosure": {
+        "url": "https://traffic.megaphone.fm/APO9270681740.mp3",
+        "length": "70362592",
+        "type": "audio/mpeg"
+      }
+    },
+    {
+      "guid": "a219efac-2058-4a2e-834d-07ae88896d9f",
+      "title": "Celeste: A Critical Review",
+      "pubDate": "Fri, 02 Feb 2024 06:00:00 GMT",
+      "duration": "00:49:28",
+      "enclosure": {
+        "url": "https://traffic.megaphone.fm/APO8536498183.mp3",
+        "length": "47503151",
+        "type": "audio/mpeg"
+      }
+    },
+    {
+      "guid": "b1537595-ff5c-49f0-b218-b8fb57605a37",
+      "title": "Limbo, Inside, & Somerville: Critical Review",
+      "pubDate": "Fri, 26 Jan 2024 06:00:00 GMT",
+      "duration": "01:23:20",
+      "enclosure": {
+        "url": "https://traffic.megaphone.fm/APO2472612822.mp3",
+        "length": "80006164",
+        "type": "audio/mpeg"
+      }
+    },
+    {
+      "guid": "f216f429-c4cf-4cca-b68e-527490a5b5ab",
+      "title": "Gears of War 4 & Gears 5: A Critical Review",
+      "pubDate": "Fri, 19 Jan 2024 06:00:00 GMT",
+      "duration": "01:06:49",
+      "enclosure": {
+        "url": "https://traffic.megaphone.fm/APO2284845924.mp3",
+        "length": "64147121",
+        "type": "audio/mpeg"
+      }
+    },
+    {
+      "guid": "75504a31-18d4-48c4-9a9a-243f036cfb77",
+      "title": "Gears of War 3 & Judgment: A Critical Review",
+      "pubDate": "Fri, 12 Jan 2024 06:00:00 GMT",
+      "duration": "01:00:43",
+      "enclosure": {
+        "url": "https://traffic.megaphone.fm/APO2004147409.mp3",
+        "length": "58301544",
+        "type": "audio/mpeg"
+      }
+    },
+    {
+      "guid": "01e6ed9d-b0d6-4741-8ccc-911dd26b9f87",
+      "title": "Gears of War Critical Review: The Golden Age of Xbox 360",
+      "pubDate": "Tue, 09 Jan 2024 05:24:06 GMT",
+      "duration": "01:22:19",
+      "enclosure": {
+        "url": "https://traffic.megaphone.fm/APO5834081011.mp3",
+        "length": "79026468",
+        "type": "audio/mpeg"
+      }
+    },
+    {
+      "guid": "67631230-4e2d-47c8-9b9f-b96cd42a131f",
+      "title": "Assassin's Creed Review: Fascinating Beginning to a Bad Franchise",
+      "pubDate": "Fri, 29 Dec 2023 06:00:00 GMT",
+      "duration": "01:12:50",
+      "enclosure": {
+        "url": "https://traffic.megaphone.fm/APO6035035822.mp3",
+        "length": "69922481",
+        "type": "audio/mpeg"
+      }
+    },
+    {
+      "guid": "bd40677c-fb91-4eea-9dee-55e0ec3fbc30",
+      "title": "Prince of Persia: The Sands of Time - The Most Important Game Ever Made?",
+      "pubDate": "Fri, 22 Dec 2023 06:00:00 GMT",
+      "duration": "01:43:00",
+      "enclosure": {
+        "url": "https://traffic.megaphone.fm/APO8843027224.mp3",
+        "length": "98892904",
+        "type": "audio/mpeg"
+      }
+    },
+    {
+      "guid": "c340a702-4e21-419b-84aa-f1e500e3e8ce",
+      "title": "Rayman Critical Review: Origins, Legends, Rabbids, & Captain Laserhawk",
+      "pubDate": "Fri, 15 Dec 2023 06:00:00 GMT",
+      "duration": "01:01:11",
+      "enclosure": {
+        "url": "https://traffic.megaphone.fm/APO9521841099.mp3",
+        "length": "58738729",
+        "type": "audio/mpeg"
+      }
+    },
+    {
+      "guid": "abaaff6b-1adb-431a-8b9d-9e76d205164a",
+      "title": "Rayman 1, 2, and 3: A Franchise Review ",
+      "pubDate": "Fri, 08 Dec 2023 06:00:00 GMT",
+      "duration": "01:51:21",
+      "enclosure": {
+        "url": "https://traffic.megaphone.fm/APO3533478006.mp3",
+        "length": "106904346",
+        "type": "audio/mpeg"
+      }
+    },
+    {
+      "guid": "aff06cfd-5edf-4f4d-b3c2-02a2196dfa0c",
+      "title": "The Darkness Review: A Thoughtful & Mostly-Forgotten Gem",
+      "pubDate": "Fri, 01 Dec 2023 06:00:00 GMT",
+      "duration": "01:16:16",
+      "enclosure": {
+        "url": "https://traffic.megaphone.fm/APO9773569284.mp3",
+        "length": "73221851",
+        "type": "audio/mpeg"
+      }
+    },
+    {
+      "guid": "8bb89a61-fa8d-48c5-9ae8-be6c91bf3d15",
+      "title": "Dead Rising Review: The Most Annoying Game ever made?",
+      "pubDate": "Fri, 24 Nov 2023 06:00:00 GMT",
+      "duration": "01:07:37",
+      "enclosure": {
+        "url": "https://traffic.megaphone.fm/APO5808236974.mp3",
+        "length": "64915330",
+        "type": "audio/mpeg"
+      }
+    },
+    {
+      "guid": "0e19af83-f418-40b8-92dc-d71e257dc0ed",
+      "title": "Fire Emblem Engage Review: Guys from a Thousand Years Ago?",
+      "pubDate": "Fri, 17 Nov 2023 06:00:00 GMT",
+      "duration": "01:48:24",
+      "enclosure": {
+        "url": "https://traffic.megaphone.fm/APO4558396027.mp3",
+        "length": "104065567",
+        "type": "audio/mpeg"
+      }
+    },
+    {
+      "guid": "cf8e6c6e-5c2b-4c76-8bb8-645b1c51eebb",
+      "title": "The Last of Us 2 Review: An Irresponsible Sequel",
+      "pubDate": "Fri, 10 Nov 2023 06:00:00 GMT",
+      "duration": "01:17:24",
+      "enclosure": {
+        "url": "https://traffic.megaphone.fm/APO8354995863.mp3",
+        "length": "74313560",
+        "type": "audio/mpeg"
+      }
+    },
+    {
+      "guid": "dd99a48b-a28b-4e2e-8071-67b50368d04c",
+      "title": "The Last of Us Review: A Decade of Cultural Impact",
+      "pubDate": "Fri, 03 Nov 2023 05:00:00 GMT",
+      "duration": "01:36:16",
+      "enclosure": {
+        "url": "https://traffic.megaphone.fm/APO8751902028.mp3",
+        "length": "92421642",
+        "type": "audio/mpeg"
+      }
+    },
+    {
+      "guid": "6bcc1b0b-2934-4fc2-ac0a-116c3cf22412",
+      "title": "Eternal Darkness Review: Featuring Ken Klippenstein ",
+      "pubDate": "Fri, 27 Oct 2023 05:00:00 GMT",
+      "duration": "01:20:20",
+      "enclosure": {
+        "url": "https://traffic.megaphone.fm/APO3360465403.mp3",
+        "length": "77122246",
+        "type": "audio/mpeg"
+      }
+    },
+    {
+      "guid": "fbbcae90-8b64-4e3c-89b4-6fa02be70452",
+      "title": "Condemned Criminal Origins & Condemned 2 Bloodshot: Review",
+      "pubDate": "Fri, 20 Oct 2023 05:00:00 GMT",
+      "duration": "01:03:55",
+      "enclosure": {
+        "url": "https://traffic.megaphone.fm/APO1851598556.mp3",
+        "length": "61371036",
+        "type": "audio/mpeg"
+      }
+    },
+    {
+      "guid": "9dffa179-5c70-44bf-84c6-06fcfff3b86c",
+      "title": "F.E.A.R Review: Paranormal Shooter Excellence",
+      "pubDate": "Fri, 13 Oct 2023 05:00:00 GMT",
+      "duration": "00:51:29",
+      "enclosure": {
+        "url": "https://traffic.megaphone.fm/APO7348748124.mp3",
+        "length": "49439137",
+        "type": "audio/mpeg"
+      }
+    },
+    {
+      "guid": "0f5718bd-b3dd-4885-bcfd-9eaa510e7964",
+      "title": "Little Nightmares 1 & 2 Review: Adorable and Terrifying",
+      "pubDate": "Fri, 06 Oct 2023 05:00:00 GMT",
+      "duration": "00:57:46",
+      "enclosure": {
+        "url": "https://traffic.megaphone.fm/APO8868743622.mp3",
+        "length": "55456914",
+        "type": "audio/mpeg"
+      }
+    },
+    {
+      "guid": "87156b9b-8479-4d48-8e18-f691f4124333",
+      "title": "Resident Evil 4 Remake: A Critical Review",
+      "pubDate": "Fri, 29 Sep 2023 05:00:00 GMT",
+      "duration": "01:48:52",
+      "enclosure": {
+        "url": "https://traffic.megaphone.fm/APO6151843303.mp3",
+        "length": "104516963",
+        "type": "audio/mpeg"
+      }
+    },
+    {
+      "guid": "13fc195e-bbad-4c88-b9c4-aafd1c034ad5",
+      "title": "Season 4 Finale - 100th Episode Celebration: Answering Fan Questions! ",
+      "pubDate": "Fri, 10 Feb 2023 06:00:06 GMT",
+      "duration": "01:07:37",
+      "enclosure": {
+        "url": "https://traffic.megaphone.fm/APO7521216783.mp3",
+        "length": "64920346",
+        "type": "audio/mpeg"
+      }
+    },
+    {
+      "guid": "3630983c-ecc4-4ad5-9028-25a6300a3c3e",
+      "title": "Death Stranding: A Critical Review",
+      "pubDate": "Fri, 03 Feb 2023 06:00:39 GMT",
+      "duration": "01:43:05",
+      "enclosure": {
+        "url": "https://traffic.megaphone.fm/APO6792598190.mp3",
+        "length": "98969809",
+        "type": "audio/mpeg"
+      }
+    },
+    {
+      "guid": "831746b0-ab96-4338-9032-a05744901684",
+      "title": "Stray and Donut County Review: The Cat's Meow",
+      "pubDate": "Fri, 27 Jan 2023 06:00:55 GMT",
+      "duration": "00:52:12",
+      "enclosure": {
+        "url": "https://traffic.megaphone.fm/APO1568048407.mp3",
+        "length": "50125426",
+        "type": "audio/mpeg"
+      }
+    },
+    {
+      "guid": "87a5c775-f1b5-4ff8-b524-9bf007b0856b",
+      "title": "Genesis Noir & White Shadows Review: Captivating, Musical, and Frightening ",
+      "pubDate": "Fri, 20 Jan 2023 06:00:22 GMT",
+      "duration": "01:04:01",
+      "enclosure": {
+        "url": "https://traffic.megaphone.fm/APO6121678318.mp3",
+        "length": "61460062",
+        "type": "audio/mpeg"
+      }
+    },
+    {
+      "guid": "6303e5a0-dfef-4955-b4aa-e699c8b7f6df",
+      "title": "Horizon Forbidden West Review: The Worst Game of 2022? ",
+      "pubDate": "Fri, 13 Jan 2023 06:00:13 GMT",
+      "duration": "01:09:09",
+      "enclosure": {
+        "url": "https://traffic.megaphone.fm/APO6605524366.mp3",
+        "length": "66388636",
+        "type": "audio/mpeg"
+      }
+    },
+    {
+      "guid": "2a9b17b7-dfe9-4ec2-ad75-ede23036eaf8",
+      "title": "Horizon Zero Dawn Review: Horizon Zero Fun",
+      "pubDate": "Fri, 06 Jan 2023 06:00:26 GMT",
+      "duration": "00:55:07",
+      "enclosure": {
+        "url": "https://traffic.megaphone.fm/APO3333198153.mp3",
+        "length": "52915722",
+        "type": "audio/mpeg"
+      }
+    },
+    {
+      "guid": "55440dd4-20fd-4b38-ae98-f5ed38802640",
+      "title": "Spider-Man and Spider-Man: Miles Morales Review: Charming, but Flawed, Fun",
+      "pubDate": "Fri, 30 Dec 2022 06:00:12 GMT",
+      "duration": "01:29:14",
+      "enclosure": {
+        "url": "https://traffic.megaphone.fm/APO3722685750.mp3",
+        "length": "85672437",
+        "type": "audio/mpeg"
+      }
+    },
+    {
+      "guid": "bf6188ea-0c3b-4eef-b08b-1b7fe4bfa329",
+      "title": "God of War Ragnarok Review: A Disappointing Ending",
+      "pubDate": "Fri, 23 Dec 2022 06:00:25 GMT",
+      "duration": "02:05:43",
+      "enclosure": {
+        "url": "https://traffic.megaphone.fm/APO4138683497.mp3",
+        "length": "120694073",
+        "type": "audio/mpeg"
+      }
+    },
+    {
+      "guid": "0c4821fe-2c0f-46c6-bbfe-f4f74d8162c5",
+      "title": "Batman Arkham Series Review: Setting the Standard for Superhero Games",
+      "pubDate": "Fri, 16 Dec 2022 06:00:18 GMT",
+      "duration": "02:03:51",
+      "enclosure": {
+        "url": "https://traffic.megaphone.fm/APO7469370670.mp3",
+        "length": "118906462",
+        "type": "audio/mpeg"
+      }
+    },
+    {
+      "guid": "e4e91983-1171-4500-86b2-f9e7298efa2d",
+      "title": "Metal Gear Rising Revengeance Review: Better Than the Sum of Its Memes?",
+      "pubDate": "Fri, 09 Dec 2022 06:00:29 GMT",
+      "duration": "01:10:38",
+      "enclosure": {
+        "url": "https://traffic.megaphone.fm/APO8844529664.mp3",
+        "length": "67821400",
+        "type": "audio/mpeg"
+      }
+    },
+    {
+      "guid": "8e8c5846-7ecc-49e9-8e27-f069f401a7ad",
+      "title": "Divinity Original Sin 1 & 2 Review: Tactical RPG Excellence",
+      "pubDate": "Fri, 02 Dec 2022 06:00:14 GMT",
+      "duration": "01:42:34",
+      "enclosure": {
+        "url": "https://traffic.megaphone.fm/APO4518028535.mp3",
+        "length": "98477871",
+        "type": "audio/mpeg"
+      }
+    },
+    {
+      "guid": "a3606c33-a972-4d94-8b0f-e11194b2eaeb",
+      "title": "A History of Capcom RPGs",
+      "pubDate": "Fri, 25 Nov 2022 06:00:53 GMT",
+      "duration": "02:04:53",
+      "enclosure": {
+        "url": "https://traffic.megaphone.fm/APO7968000732.mp3",
+        "length": "119897025",
+        "type": "audio/mpeg"
+      }
+    },
+    {
+      "guid": "744855c8-495d-463b-90cb-8ed7d26e5d58",
+      "title": "Hades Review: It's all Greek to me",
+      "pubDate": "Fri, 18 Nov 2022 06:00:12 GMT",
+      "duration": "00:56:30",
+      "enclosure": {
+        "url": "https://traffic.megaphone.fm/APO5649915124.mp3",
+        "length": "54253609",
+        "type": "audio/mpeg"
+      }
+    },
+    {
+      "guid": "5f71296e-6b54-425e-9252-b38ee8e595c5",
+      "title": "Titanfall 2 Review: A Heartfelt and Genuine Surprise",
+      "pubDate": "Fri, 11 Nov 2022 06:00:02 GMT",
+      "duration": "00:52:08",
+      "enclosure": {
+        "url": "https://traffic.megaphone.fm/APO3628584856.mp3",
+        "length": "50058135",
+        "type": "audio/mpeg"
+      }
+    },
+    {
+      "guid": "7da20bfb-d3e3-494c-a1b5-891bced65723",
+      "title": "God of War Retrospective: Crude, Brash, and Fun",
+      "pubDate": "Fri, 04 Nov 2022 05:00:38 GMT",
+      "duration": "01:19:55",
+      "enclosure": {
+        "url": "https://traffic.megaphone.fm/APO7801588632.mp3",
+        "length": "76724349",
+        "type": "audio/mpeg"
+      }
+    },
+    {
+      "guid": "f299a385-ab91-4256-b019-71f3d9a615ec",
+      "title": "Silent Hill Retrospective: Silent Hill 4, the Outsourced Sequels, and PT",
+      "pubDate": "Fri, 28 Oct 2022 05:00:59 GMT",
+      "duration": "02:00:41",
+      "enclosure": {
+        "url": "https://traffic.megaphone.fm/APO3661282953.mp3",
+        "length": "115871660",
+        "type": "audio/mpeg"
+      }
+    },
+    {
+      "guid": "1626f060-55e4-4dd8-925d-c42dc4d2e765",
+      "title": "Deadly Premonition 2 Review: A Disappointing and Messy Sequel",
+      "pubDate": "Fri, 21 Oct 2022 05:00:01 GMT",
+      "duration": "01:32:30",
+      "enclosure": {
+        "url": "https://traffic.megaphone.fm/APO7722953417.mp3",
+        "length": "88809639",
+        "type": "audio/mpeg"
+      }
+    },
+    {
+      "guid": "4eac4935-af97-4aa7-b649-df0f3c5851ce",
+      "title": "Deadly Premonition Retrospective: A Polarizing Masterpiece",
+      "pubDate": "Fri, 14 Oct 2022 05:00:13 GMT",
+      "duration": "01:51:56",
+      "enclosure": {
+        "url": "https://traffic.megaphone.fm/APO5549472830.mp3",
+        "length": "107468173",
+        "type": "audio/mpeg"
+      }
+    },
+    {
+      "guid": "e137e968-4eac-4c80-bbb1-69eeae75190f",
+      "title": "Vampyr Review: An Underrated Gem",
+      "pubDate": "Fri, 07 Oct 2022 05:00:27 GMT",
+      "duration": "00:58:39",
+      "enclosure": {
+        "url": "https://traffic.megaphone.fm/APO3256678703.mp3",
+        "length": "34172760",
+        "type": "audio/mpeg"
+      }
+    },
+    {
+      "guid": "70c3d5b8-44bd-481e-b616-2c9ae13ba965",
+      "title": "Dead Space Trilogy Retrospective: A Gruesome and (Mostly) Awesome Ride",
+      "pubDate": "Fri, 30 Sep 2022 05:00:08 GMT",
+      "duration": "01:11:49",
+      "enclosure": {
+        "url": "https://traffic.megaphone.fm/APO8553750926.mp3",
+        "length": "68958667",
+        "type": "audio/mpeg"
+      }
+    },
+    {
+      "guid": "13940fee-31ac-4376-a91e-e70d5e3e6bbf",
+      "title": "Bioshock Infinite Retrospective: A Beautiful but Complicated Sequel ",
+      "pubDate": "Fri, 23 Sep 2022 05:00:27 GMT",
+      "duration": "01:27:33",
+      "enclosure": {
+        "url": "https://traffic.megaphone.fm/APO8219433256.mp3",
+        "length": "84052427",
+        "type": "audio/mpeg"
+      }
+    },
+    {
+      "guid": "2f95a1c0-f3d1-4591-b474-3b8b6eda1f06",
+      "title": "Bioshock 2 Retrospective: A Well-Made, Uninspired Entry",
+      "pubDate": "Fri, 16 Sep 2022 05:00:54 GMT",
+      "duration": "00:54:55",
+      "enclosure": {
+        "url": "https://traffic.megaphone.fm/APO1804133288.mp3",
+        "length": "52730148",
+        "type": "audio/mpeg"
+      }
+    },
+    {
+      "guid": "7fcb3109-6e4f-4b02-9db4-6040f07998b5",
+      "title": "Bioshock Retrospective: A Unique, Modern Classic ",
+      "pubDate": "Fri, 09 Sep 2022 05:00:25 GMT",
+      "duration": "01:17:08",
+      "enclosure": {
+        "url": "https://traffic.megaphone.fm/APO5724483215.mp3",
+        "length": "74056097",
+        "type": "audio/mpeg"
+      }
+    },
+    {
+      "guid": "ce7b7071-e951-46e2-a2e8-33858b713c4a",
+      "title": "Disco Elysium Review: An Impactful, Heartfelt Success",
+      "pubDate": "Fri, 02 Sep 2022 05:00:45 GMT",
+      "duration": "01:34:40",
+      "enclosure": {
+        "url": "https://traffic.megaphone.fm/APO6675539390.mp3",
+        "length": "90892747",
+        "type": "audio/mpeg"
+      }
+    },
+    {
+      "guid": "a0591dcc-7335-4b13-b793-8d6b94defdc4",
+      "title": "Elden Ring Review: Not a Masterpiece ",
+      "pubDate": "Fri, 26 Aug 2022 05:00:37 GMT",
+      "duration": "02:09:16",
+      "enclosure": {
+        "url": "https://traffic.megaphone.fm/APO3730877800.mp3",
+        "length": "124110053",
+        "type": "audio/mpeg"
+      }
+    },
+    {
+      "guid": "8772eecd-d71e-4448-8159-ba65578ac6db",
+      "title": "Season 4 Trailer",
+      "pubDate": "Fri, 19 Aug 2022 05:00:38 GMT",
+      "duration": "00:03:34",
+      "enclosure": {
+        "url": "https://anchor.fm/s/104b7e58/podcast/play/56324997/https%3A%2F%2Fd3ctxlq1ktw2nl.cloudfront.net%2Fstaging%2F2022-7-18%2F281381654-44100-2-d78637cce017c.m4a",
+        "length": "3466917",
+        "type": "audio/x-m4a"
+      }
+    },
+    {
+      "guid": "1744332f-cb0e-404a-83cb-02780df9baeb",
+      "title": "Video Games in Culture: Season 3 Finale",
+      "pubDate": "Fri, 28 Jan 2022 06:00:00 GMT",
+      "duration": "01:21:29",
+      "enclosure": {
+        "url": "https://traffic.megaphone.fm/APO7714702447.mp3",
+        "length": "78239869",
+        "type": "audio/mpeg"
+      }
+    },
+    {
+      "guid": "570ee99f-69fa-4af0-9816-e46fb7236ebc",
+      "title": "Video Games Are Art: Journey and Abzu ",
+      "pubDate": "Fri, 21 Jan 2022 06:00:00 GMT",
+      "duration": "00:54:39",
+      "enclosure": {
+        "url": "https://traffic.megaphone.fm/APO3925275528.mp3",
+        "length": "52476029",
+        "type": "audio/mpeg"
+      }
+    },
+    {
+      "guid": "583e7f2d-8d89-4987-b3bb-18b1b1bb7fd1",
+      "title": "Halo Infinite Review: What Happened?",
+      "pubDate": "Fri, 14 Jan 2022 06:00:00 GMT",
+      "duration": "01:33:37",
+      "enclosure": {
+        "url": "https://traffic.megaphone.fm/APO5268337037.mp3",
+        "length": "89885884",
+        "type": "audio/mpeg"
+      }
+    },
+    {
+      "guid": "4b87a8ec-dfa3-4d3d-9fdb-26fd82c8eda3",
+      "title": "Metal Gear Solid 5 Retrospective - What Happened?",
+      "pubDate": "Fri, 07 Jan 2022 06:00:00 GMT",
+      "duration": "01:55:25",
+      "enclosure": {
+        "url": "https://traffic.megaphone.fm/APO8251751182.mp3",
+        "length": "110803905",
+        "type": "audio/mpeg"
+      }
+    },
+    {
+      "guid": "6f20a25d-f9c2-4a77-b544-e05fe2a0d5d1",
+      "title": "Metal Gear Solid 4 Retrospective",
+      "pubDate": "Fri, 31 Dec 2021 06:00:00 GMT",
+      "duration": "01:19:24",
+      "enclosure": {
+        "url": "https://traffic.megaphone.fm/APO2670050152.mp3",
+        "length": "76232411",
+        "type": "audio/mpeg"
+      }
+    },
+    {
+      "guid": "9ca1f3a1-228f-4eb0-b22f-77d70228d99d",
+      "title": "Metal Gear Solid 3 Retrospective",
+      "pubDate": "Fri, 24 Dec 2021 08:59:27 GMT",
+      "duration": "01:10:58",
+      "enclosure": {
+        "url": "https://traffic.megaphone.fm/APO4030233175.mp3",
+        "length": "68143229",
+        "type": "audio/mpeg"
+      }
+    },
+    {
+      "guid": "cb10653e-944d-452d-a9f5-b8a33c212351",
+      "title": "Metal Gear Solid 2 Retrospective",
+      "pubDate": "Fri, 17 Dec 2021 06:00:00 GMT",
+      "duration": "01:15:04",
+      "enclosure": {
+        "url": "https://traffic.megaphone.fm/APO3689315277.mp3",
+        "length": "72077479",
+        "type": "audio/mpeg"
+      }
+    },
+    {
+      "guid": "a52fd2d5-e44f-47db-9440-7955e70608d3",
+      "title": "Metal Gear Solid 1 Retrospective",
+      "pubDate": "Fri, 10 Dec 2021 06:00:00 GMT",
+      "duration": "00:58:55",
+      "enclosure": {
+        "url": "https://traffic.megaphone.fm/APO7407821733.mp3",
+        "length": "56574119",
+        "type": "audio/mpeg"
+      }
+    },
+    {
+      "guid": "c96d48f6-75f7-47cb-b3aa-61f075836987",
+      "title": "Resident Evil: Welcome to Raccoon City Review",
+      "pubDate": "Fri, 03 Dec 2021 06:00:00 GMT",
+      "duration": "00:46:57",
+      "enclosure": {
+        "url": "https://traffic.megaphone.fm/APO3550593516.mp3",
+        "length": "45073136",
+        "type": "audio/mpeg"
+      }
+    },
+    {
+      "guid": "ceee79b9-afbd-4236-be60-65649354c3df",
+      "title": "Metro 2033, Last Light, and Exodus Retrospective",
+      "pubDate": "Fri, 26 Nov 2021 06:00:00 GMT",
+      "duration": "01:13:34",
+      "enclosure": {
+        "url": "https://traffic.megaphone.fm/APO3152631681.mp3",
+        "length": "70629668",
+        "type": "audio/mpeg"
+      }
+    },
+    {
+      "guid": "6016e1bb-5a26-4ca5-97af-bf8abc673d7a",
+      "title": "The Rise and Fall of Telltale Games",
+      "pubDate": "Fri, 19 Nov 2021 06:00:00 GMT",
+      "duration": "00:43:48",
+      "enclosure": {
+        "url": "https://traffic.megaphone.fm/APO6843460546.mp3",
+        "length": "42050873",
+        "type": "audio/mpeg"
+      }
+    },
+    {
+      "guid": "1161cd01-2dcc-47f6-89b9-2a5d69de786e",
+      "title": "Ghost of Tsushima Review ",
+      "pubDate": "Fri, 12 Nov 2021 06:00:00 GMT",
+      "duration": "00:41:23",
+      "enclosure": {
+        "url": "https://traffic.megaphone.fm/APO9155519859.mp3",
+        "length": "39729946",
+        "type": "audio/mpeg"
+      }
+    },
+    {
+      "guid": "91b03441-a6c1-4fb6-8113-3ef4a73e1cf4",
+      "title": "Interview with The Creator of Oregon Trail: Don Rawitsch",
+      "pubDate": "Fri, 05 Nov 2021 05:00:00 GMT",
+      "duration": "00:38:48",
+      "enclosure": {
+        "url": "https://anchor.fm/s/104b7e58/podcast/play/42159069/https%3A%2F%2Fd3ctxlq1ktw2nl.cloudfront.net%2Fstaging%2F2021-9-22%2Fc2ddd57d-0e7c-fa4b-2910-0c282be8a19c.mp3",
+        "length": "65209366",
+        "type": "audio/mpeg"
+      }
+    },
+    {
+      "guid": "88d2c01b-7b7a-45c0-b5d1-90160b060259",
+      "title": "Silent Hill 3 Retrospective",
+      "pubDate": "Fri, 29 Oct 2021 05:00:00 GMT",
+      "duration": "00:35:36",
+      "enclosure": {
+        "url": "https://traffic.megaphone.fm/APO6701481187.mp3",
+        "length": "34189479",
+        "type": "audio/mpeg"
+      }
+    },
+    {
+      "guid": "11772f85-0d20-4423-8217-d1ce0b00467b",
+      "title": "Silent Hill 2 Retrospective",
+      "pubDate": "Fri, 22 Oct 2021 05:00:00 GMT",
+      "duration": "00:50:38",
+      "enclosure": {
+        "url": "https://traffic.megaphone.fm/APO5097504590.mp3",
+        "length": "48622027",
+        "type": "audio/mpeg"
+      }
+    },
+    {
+      "guid": "20aa847e-a131-4060-8cef-02032049c1d3",
+      "title": "Silent Hill 1 Retrospective",
+      "pubDate": "Fri, 15 Oct 2021 05:00:00 GMT",
+      "duration": "00:41:23",
+      "enclosure": {
+        "url": "https://traffic.megaphone.fm/APO8114856568.mp3",
+        "length": "39729110",
+        "type": "audio/mpeg"
+      }
+    },
+    {
+      "guid": "6205471a-3665-4050-ad1f-f59603419837",
+      "title": "\"Games in Pieces\": A History of DLC and Cut Content ",
+      "pubDate": "Fri, 08 Oct 2021 05:00:00 GMT",
+      "duration": "00:45:28",
+      "enclosure": {
+        "url": "https://anchor.fm/s/104b7e58/podcast/play/41158976/https%3A%2F%2Fd3ctxlq1ktw2nl.cloudfront.net%2Fstaging%2F2021-9-2%2Fda4aca39-7a6f-fa4e-54fc-eed0dd1fe077.mp3",
+        "length": "76387047",
+        "type": "audio/mpeg"
+      }
+    },
+    {
+      "guid": "20ad9967-d633-4224-ae25-4dbd1f9b59ab",
+      "title": "Heavy Rain and \"Interactive Storytelling\" Games",
+      "pubDate": "Fri, 01 Oct 2021 05:00:00 GMT",
+      "duration": "00:43:55",
+      "enclosure": {
+        "url": "https://traffic.megaphone.fm/APO1987060242.mp3",
+        "length": "42167484",
+        "type": "audio/mpeg"
+      }
+    },
+    {
+      "guid": "2bd71c92-790b-417f-9e36-e127b20c7f10",
+      "title": "Gameboy Advance Nostalgia",
+      "pubDate": "Fri, 24 Sep 2021 05:00:00 GMT",
+      "duration": "00:51:37",
+      "enclosure": {
+        "url": "https://traffic.megaphone.fm/APO2862036951.mp3",
+        "length": "49557002",
+        "type": "audio/mpeg"
+      }
+    },
+    {
+      "guid": "c64f2ee0-d410-4c69-9f9d-1e0fd5da5830",
+      "title": "Hollow Knight Retrospective",
+      "pubDate": "Fri, 17 Sep 2021 05:00:00 GMT",
+      "duration": "00:52:13",
+      "enclosure": {
+        "url": "https://traffic.megaphone.fm/APO1503081242.mp3",
+        "length": "50137965",
+        "type": "audio/mpeg"
+      }
+    },
+    {
+      "guid": "f8e4c4d7-7053-43d3-88ae-d5489a48ee01",
+      "title": "Runescape: One of the Best Games Ever Made? ",
+      "pubDate": "Fri, 10 Sep 2021 05:00:00 GMT",
+      "duration": "00:56:14",
+      "enclosure": {
+        "url": "https://traffic.megaphone.fm/APO4300340036.mp3",
+        "length": "53994475",
+        "type": "audio/mpeg"
+      }
+    },
+    {
+      "guid": "de7783a6-0b77-4918-a1cb-673fb8b49e64",
+      "title": "Mass Effect Legendary Edition: Re-Evaluating a Franchise",
+      "pubDate": "Fri, 03 Sep 2021 05:00:00 GMT",
+      "duration": "00:46:14",
+      "enclosure": {
+        "url": "https://traffic.megaphone.fm/APO7926201157.mp3",
+        "length": "44387265",
+        "type": "audio/mpeg"
+      }
+    },
+    {
+      "guid": "cdbf9c0a-c183-4437-9071-b906edb85db3",
+      "title": "Rooster Teeth & Goddamn Gamecube Collab: \"The Most\"",
+      "pubDate": "Fri, 27 Aug 2021 05:00:00 GMT",
+      "duration": "01:04:35",
+      "enclosure": {
+        "url": "https://anchor.fm/s/104b7e58/podcast/play/39191082/https%3A%2F%2Fd3ctxlq1ktw2nl.cloudfront.net%2Fstaging%2F2021-7-23%2F96b921c9-a13a-621e-5e3b-53e7b6051e4a.mp3",
+        "length": "108504088",
+        "type": "audio/mpeg"
+      }
+    },
+    {
+      "guid": "29ded075-cbaa-4f2b-addf-148910203a87",
+      "title": "Demons Souls Remake Review",
+      "pubDate": "Fri, 20 Aug 2021 05:00:00 GMT",
+      "duration": "00:40:55",
+      "enclosure": {
+        "url": "https://traffic.megaphone.fm/APO5548634393.mp3",
+        "length": "39288999",
+        "type": "audio/mpeg"
+      }
+    },
+    {
+      "guid": "a093c9a5-471b-42ea-b09a-ac56bc2d71f5",
+      "title": "Resident Evil Village Review: A Tasteless Mess",
+      "pubDate": "Fri, 13 Aug 2021 05:00:00 GMT",
+      "duration": "01:15:13",
+      "enclosure": {
+        "url": "https://traffic.megaphone.fm/APO9686961536.mp3",
+        "length": "72214569",
+        "type": "audio/mpeg"
+      }
+    },
+    {
+      "guid": "fdcae920-f6f0-4b69-bc5d-f72d4c6591db",
+      "title": "Season 2 Finale: 50th Episode Celebration",
+      "pubDate": "Fri, 09 Jul 2021 05:00:00 GMT",
+      "duration": "00:51:52",
+      "enclosure": {
+        "url": "https://anchor.fm/s/104b7e58/podcast/play/36761997/https%3A%2F%2Fd3ctxlq1ktw2nl.cloudfront.net%2Fstaging%2F2021-6-6%2F034f3bf3-0dce-62b1-e0f8-bf1e9320df9f.mp3",
+        "length": "87143432",
+        "type": "audio/mpeg"
+      }
+    },
+    {
+      "guid": "80d93673-9e38-4945-b2c5-3a5dc1738c76",
+      "title": "My Miserable Gamestop Career: Working at Gamestop",
+      "pubDate": "Fri, 02 Jul 2021 05:00:00 GMT",
+      "duration": "01:12:52",
+      "enclosure": {
+        "url": "https://traffic.megaphone.fm/APO4959834695.mp3",
+        "length": "69959680",
+        "type": "audio/mpeg"
+      }
+    },
+    {
+      "guid": "261614e7-ee78-4aa4-a9e1-6f9fc152a3ae",
+      "title": "Hellblade: Senua's Sacrifice Retrospective",
+      "pubDate": "Fri, 25 Jun 2021 05:00:00 GMT",
+      "duration": "00:45:38",
+      "enclosure": {
+        "url": "https://traffic.megaphone.fm/APO5876245176.mp3",
+        "length": "43813407",
+        "type": "audio/mpeg"
+      }
+    },
+    {
+      "guid": "55b7547a-7d92-4bae-9eca-2b9626cf8751",
+      "title": "Shadow of the Colossus Retrospective",
+      "pubDate": "Fri, 18 Jun 2021 05:00:00 GMT",
+      "duration": "00:44:51",
+      "enclosure": {
+        "url": "https://traffic.megaphone.fm/APO8751305947.mp3",
+        "length": "43071529",
+        "type": "audio/mpeg"
+      }
+    },
+    {
+      "guid": "537ea9d5-abbd-46bd-8267-2449dbd456aa",
+      "title": "Interview with Deadly Premonition's Jeff Kramer: Voice of Agent York ",
+      "pubDate": "Fri, 11 Jun 2021 05:00:00 GMT",
+      "duration": "00:50:30",
+      "enclosure": {
+        "url": "https://anchor.fm/s/104b7e58/podcast/play/34103392/https%3A%2F%2Fd3ctxlq1ktw2nl.cloudfront.net%2Fstaging%2F2021-4-24%2F70846548-d8e3-6e63-8a12-44eef48a21c0.mp3",
+        "length": "84846758",
+        "type": "audio/mpeg"
+      }
+    },
+    {
+      "guid": "44d55c5f-f598-40ff-b30f-7bd8d74acca9",
+      "title": "Doom Eternal & Doom 2016 ",
+      "pubDate": "Fri, 04 Jun 2021 05:00:00 GMT",
+      "duration": "00:52:00",
+      "enclosure": {
+        "url": "https://traffic.megaphone.fm/APO9220531939.mp3",
+        "length": "49926060",
+        "type": "audio/mpeg"
+      }
+    },
+    {
+      "guid": "e241c66d-abbb-4ea8-a43c-32b943b5544a",
+      "title": "Mass Effect Andromeda Retrospective",
+      "pubDate": "Fri, 28 May 2021 05:00:00 GMT",
+      "duration": "00:49:23",
+      "enclosure": {
+        "url": "https://traffic.megaphone.fm/APO4212740690.mp3",
+        "length": "47412035",
+        "type": "audio/mpeg"
+      }
+    },
+    {
+      "guid": "167524bd-092a-4633-a208-00e2cad69106",
+      "title": "Mass Effect 3 Retrospective",
+      "pubDate": "Fri, 21 May 2021 05:00:00 GMT",
+      "duration": "01:17:59",
+      "enclosure": {
+        "url": "https://traffic.megaphone.fm/APO5283118031.mp3",
+        "length": "74874462",
+        "type": "audio/mpeg"
+      }
+    },
+    {
+      "guid": "c02971b1-a415-406e-85b9-a81f93af32fe",
+      "title": "Mass Effect 2 Retrospective",
+      "pubDate": "Fri, 14 May 2021 05:00:00 GMT",
+      "duration": "01:13:03",
+      "enclosure": {
+        "url": "https://traffic.megaphone.fm/APO3901892364.mp3",
+        "length": "70140656",
+        "type": "audio/mpeg"
+      }
+    },
+    {
+      "guid": "91431f4f-3b3e-402b-a6ec-4d85be3df615",
+      "title": "Mass Effect Retrospective",
+      "pubDate": "Fri, 07 May 2021 05:00:00 GMT",
+      "duration": "01:12:32",
+      "enclosure": {
+        "url": "https://traffic.megaphone.fm/APO1521340462.mp3",
+        "length": "69638269",
+        "type": "audio/mpeg"
+      }
+    },
+    {
+      "guid": "ed25ff9d-cc69-4c16-9437-58108bc407a4",
+      "title": "Halo Retrospective: Halo 5",
+      "pubDate": "Fri, 30 Apr 2021 05:00:00 GMT",
+      "duration": "01:12:08",
+      "enclosure": {
+        "url": "https://traffic.megaphone.fm/APO4358439540.mp3",
+        "length": "69249985",
+        "type": "audio/mpeg"
+      }
+    },
+    {
+      "guid": "c9e701dc-f7f8-476d-8698-007d51c9d382",
+      "title": "Halo Retrospective: Halo 4",
+      "pubDate": "Fri, 23 Apr 2021 05:00:00 GMT",
+      "duration": "00:51:14",
+      "enclosure": {
+        "url": "https://traffic.megaphone.fm/APO5581694244.mp3",
+        "length": "49192542",
+        "type": "audio/mpeg"
+      }
+    },
+    {
+      "guid": "9e67b6d4-a919-48a0-8844-d3ff0d50991f",
+      "title": "Halo Retrospective: Odst & Reach",
+      "pubDate": "Fri, 16 Apr 2021 05:00:00 GMT",
+      "duration": "01:03:11",
+      "enclosure": {
+        "url": "https://traffic.megaphone.fm/APO1471091969.mp3",
+        "length": "60667193",
+        "type": "audio/mpeg"
+      }
+    },
+    {
+      "guid": "90ab4592-1be6-4627-a5c4-e27695e9822a",
+      "title": "Halo Retrospective: Halo 3",
+      "pubDate": "Fri, 09 Apr 2021 05:00:00 GMT",
+      "duration": "00:55:39",
+      "enclosure": {
+        "url": "https://traffic.megaphone.fm/APO4954439401.mp3",
+        "length": "53435663",
+        "type": "audio/mpeg"
+      }
+    },
+    {
+      "guid": "85a9e3db-2a6d-4a74-821b-778c6c855d94",
+      "title": "Halo Retrospective: Halo 2",
+      "pubDate": "Fri, 02 Apr 2021 08:00:00 GMT",
+      "duration": "01:28:28",
+      "enclosure": {
+        "url": "https://traffic.megaphone.fm/APO3296570372.mp3",
+        "length": "84931813",
+        "type": "audio/mpeg"
+      }
+    },
+    {
+      "guid": "9fd6b656-d540-4b1a-9576-c2cae1f354bd",
+      "title": "Halo Retrospective: Halo Combat Evolved",
+      "pubDate": "Fri, 26 Mar 2021 10:00:00 GMT",
+      "duration": "01:11:21",
+      "enclosure": {
+        "url": "https://traffic.megaphone.fm/APO5165384382.mp3",
+        "length": "68498912",
+        "type": "audio/mpeg"
+      }
+    },
+    {
+      "guid": "374a01f3-a7a7-4c76-bb1a-74eed554a2c2",
+      "title": "Games Industry Stories: An Interview with Mike Bithell ",
+      "pubDate": "Fri, 19 Mar 2021 10:00:00 GMT",
+      "duration": "01:01:03",
+      "enclosure": {
+        "url": "https://anchor.fm/s/104b7e58/podcast/play/28861674/https%3A%2F%2Fd3ctxlq1ktw2nl.cloudfront.net%2Fstaging%2F2021-2-18%2Fc515683c-28de-7457-163a-fb5c1e485bcf.mp3",
+        "length": "102581713",
+        "type": "audio/mpeg"
+      }
+    },
+    {
+      "guid": "d21d4195-e736-4ad1-bf8b-bc1f106ea6d2",
+      "title": "Final Fantasy March Madness: The Finals",
+      "pubDate": "Fri, 12 Mar 2021 11:00:00 GMT",
+      "duration": "01:08:02",
+      "enclosure": {
+        "url": "https://anchor.fm/s/104b7e58/podcast/play/26498796/https%3A%2F%2Fd3ctxlq1ktw2nl.cloudfront.net%2Fstaging%2F2021-1-23%2F783cf211-ba2b-2b4c-4a09-cc2096c99f58.mp3",
+        "length": "81659857",
+        "type": "audio/mpeg"
+      }
+    },
+    {
+      "guid": "8392a8c0-5a88-4a87-b772-aa6c94368ff5",
+      "title": "Final Fantasy March Madness ",
+      "pubDate": "Fri, 05 Mar 2021 11:00:00 GMT",
+      "duration": "01:18:32",
+      "enclosure": {
+        "url": "https://anchor.fm/s/104b7e58/podcast/play/26498662/https%3A%2F%2Fd3ctxlq1ktw2nl.cloudfront.net%2Fstaging%2F2021-1-23%2F9944dc7b-1619-dfbd-b40d-b825035ab370.mp3",
+        "length": "94259767",
+        "type": "audio/mpeg"
+      }
+    },
+    {
+      "guid": "01083d05-a4bf-4804-89a4-eb7546de6505",
+      "title": "Designing Bioshock & Perception: An Interview with Bill Gardner",
+      "pubDate": "Fri, 26 Feb 2021 11:00:00 GMT",
+      "duration": "01:30:50",
+      "enclosure": {
+        "url": "https://traffic.megaphone.fm/APO2190318445.mp3",
+        "length": "87204675",
+        "type": "audio/mpeg"
+      }
+    },
+    {
+      "guid": "bf241625-a474-4ca3-986a-26459d1c830d",
+      "title": "GamesRadar Top 100 Games of the Generation: 50 - 1",
+      "pubDate": "Fri, 19 Feb 2021 14:00:00 GMT",
+      "duration": "01:07:58",
+      "enclosure": {
+        "url": "https://traffic.megaphone.fm/APO2934417244.mp3",
+        "length": "65258475",
+        "type": "audio/mpeg"
+      }
+    },
+    {
+      "guid": "28f6d501-59bd-441f-9785-571eb0c6aa55",
+      "title": "GamesRadar Top 100 Games of the Generation: 100 - 51",
+      "pubDate": "Fri, 12 Feb 2021 11:00:00 GMT",
+      "duration": "00:56:39",
+      "enclosure": {
+        "url": "https://traffic.megaphone.fm/APO6265624028.mp3",
+        "length": "54395297",
+        "type": "audio/mpeg"
+      }
+    },
+    {
+      "guid": "7d49f28a-eef4-4303-af22-79934e0e7397",
+      "title": "Musicians in the Games Industry: An interview with 8-Bit Music Theory ",
+      "pubDate": "Fri, 05 Feb 2021 12:00:00 GMT",
+      "duration": "00:31:28",
+      "enclosure": {
+        "url": "https://traffic.megaphone.fm/APO3031127975.mp3",
+        "length": "30217195",
+        "type": "audio/mpeg"
+      }
+    },
+    {
+      "guid": "8a059246-fc3e-4890-947d-03df50a759bb",
+      "title": "Resident Evil 3 Remake Review",
+      "pubDate": "Fri, 29 Jan 2021 14:00:00 GMT",
+      "duration": "01:10:36",
+      "enclosure": {
+        "url": "https://traffic.megaphone.fm/APO1824401910.mp3",
+        "length": "67779186",
+        "type": "audio/mpeg"
+      }
+    },
+    {
+      "guid": "7f3d2a4e-9aa6-44cb-afbd-a34abc3ddb8b",
+      "title": "Season 2 Intro: Welcome Back ",
+      "pubDate": "Fri, 22 Jan 2021 14:00:00 GMT",
+      "duration": "00:48:54",
+      "enclosure": {
+        "url": "https://anchor.fm/s/104b7e58/podcast/play/25386010/https%3A%2F%2Fd3ctxlq1ktw2nl.cloudfront.net%2Fstaging%2F2021-0-18%2F95686333-92aa-a180-3038-a86a9ef42624.mp3",
+        "length": "58692479",
+        "type": "audio/mpeg"
+      }
+    },
+    {
+      "guid": "e45b50d4-35d0-43f2-b560-d7f0b5032b41",
+      "title": "Dark Souls Retrospective: Sekiro",
+      "pubDate": "Fri, 29 May 2020 05:00:00 GMT",
+      "duration": "01:15:24",
+      "enclosure": {
+        "url": "https://traffic.megaphone.fm/APO8345732909.mp3",
+        "length": "72390530",
+        "type": "audio/mpeg"
+      }
+    },
+    {
+      "guid": "96522a8e-643a-440c-8f39-97bfa35ee74e",
+      "title": "Dark Souls Retrospective: Dark Souls 3",
+      "pubDate": "Fri, 22 May 2020 05:00:00 GMT",
+      "duration": "01:11:21",
+      "enclosure": {
+        "url": "https://traffic.megaphone.fm/APO9318382251.mp3",
+        "length": "68504764",
+        "type": "audio/mpeg"
+      }
+    },
+    {
+      "guid": "083d7385-db17-4bfc-9c21-1c9c2247b4bf",
+      "title": "Dark Souls Retrospective: Bloodborne",
+      "pubDate": "Fri, 15 May 2020 05:00:00 GMT",
+      "duration": "00:55:29",
+      "enclosure": {
+        "url": "https://traffic.megaphone.fm/APO4093744403.mp3",
+        "length": "53270569",
+        "type": "audio/mpeg"
+      }
+    },
+    {
+      "guid": "b5517d63-456e-4c39-b9aa-ff1fc4614ce1",
+      "title": "Dark Souls Retrospective: Dark Souls 2",
+      "pubDate": "Fri, 08 May 2020 05:00:00 GMT",
+      "duration": "00:51:16",
+      "enclosure": {
+        "url": "https://traffic.megaphone.fm/APO3552298536.mp3",
+        "length": "49228904",
+        "type": "audio/mpeg"
+      }
+    },
+    {
+      "guid": "87f220ca-7649-415d-8f28-81653b26da4a",
+      "title": "Dark Souls Retrospective: Dark Souls ",
+      "pubDate": "Fri, 01 May 2020 05:00:00 GMT",
+      "duration": "01:06:54",
+      "enclosure": {
+        "url": "https://traffic.megaphone.fm/APO2669457652.mp3",
+        "length": "64238236",
+        "type": "audio/mpeg"
+      }
+    },
+    {
+      "guid": "190894d0-3e38-482c-aa5f-37ac172e4566",
+      "title": "Dark Souls Retrospective: Demon's Souls",
+      "pubDate": "Fri, 24 Apr 2020 05:00:00 GMT",
+      "duration": "01:12:23",
+      "enclosure": {
+        "url": "https://traffic.megaphone.fm/APO4666976660.mp3",
+        "length": "69494491",
+        "type": "audio/mpeg"
+      }
+    },
+    {
+      "guid": "fea0bc6b-7659-4665-b6c3-982bf67500b8",
+      "title": "Jedi: Fallen Order",
+      "pubDate": "Fri, 17 Apr 2020 06:00:00 GMT",
+      "duration": "00:59:44",
+      "enclosure": {
+        "url": "https://traffic.megaphone.fm/APO4188722724.mp3",
+        "length": "57355284",
+        "type": "audio/mpeg"
+      }
+    },
+    {
+      "guid": "f186d1a1-0b2e-4116-903d-085e8b5da166",
+      "title": "Kingdom Hearts Retrospective: KH3",
+      "pubDate": "Fri, 10 Apr 2020 05:00:00 GMT",
+      "duration": "00:46:02",
+      "enclosure": {
+        "url": "https://anchor.fm/s/104b7e58/podcast/play/11793472/https%3A%2F%2Fd3ctxlq1ktw2nl.cloudfront.net%2Fproduction%2F2020-2-31%2F60444459-44100-2-6e857e5dc2132.mp3",
+        "length": "55249542",
+        "type": "audio/mpeg"
+      }
+    },
+    {
+      "guid": "https://anchor.fm/goddamn-gamecube/episodes/Kingdom-Hearts-Retrospective-Recoded--Birth-by-Sleep--DDD-ebjboi",
+      "title": "Kingdom Hearts Retrospective: Recoded, Birth by Sleep & DDD",
+      "pubDate": "Fri, 03 Apr 2020 05:00:00 GMT",
+      "duration": "01:07:44",
+      "enclosure": {
+        "url": "https://anchor.fm/s/104b7e58/podcast/play/11168978/https%3A%2F%2Fd3ctxlq1ktw2nl.cloudfront.net%2Fproduction%2F2020-2-17%2F56985929-44100-2-57f5a8e26b35a.mp3",
+        "length": "81289966",
+        "type": "audio/mpeg"
+      }
+    },
+    {
+      "guid": "https://anchor.fm/goddamn-gamecube/episodes/Kingdom-Hearts-Retrospective-KH2--3582-Days-ebjbkd",
+      "title": "Kingdom Hearts Retrospective: KH2 & 358/2 Days",
+      "pubDate": "Fri, 27 Mar 2020 05:00:00 GMT",
+      "duration": "00:51:32",
+      "enclosure": {
+        "url": "https://anchor.fm/s/104b7e58/podcast/play/11168845/https%3A%2F%2Fd3ctxlq1ktw2nl.cloudfront.net%2Fproduction%2F2020-2-17%2F56984937-44100-2-9f664a6674d79.mp3",
+        "length": "61851729",
+        "type": "audio/mpeg"
+      }
+    },
+    {
+      "guid": "https://anchor.fm/goddamn-gamecube/episodes/Kingdom-Hearts-Retrospective-KH1--Chain-of-Memories-ebjbfu",
+      "title": "Kingdom Hearts Retrospective: KH1 & Chain of Memories",
+      "pubDate": "Fri, 20 Mar 2020 05:00:00 GMT",
+      "duration": "01:05:17",
+      "enclosure": {
+        "url": "https://anchor.fm/s/104b7e58/podcast/play/11168702/https%3A%2F%2Fd3ctxlq1ktw2nl.cloudfront.net%2Fproduction%2F2020-2-17%2F56983820-44100-2-6b2bd49616e04.mp3",
+        "length": "78347011",
+        "type": "audio/mpeg"
+      }
+    },
+    {
+      "guid": "58178247-6af3-43b5-81bd-a01d3b7145d8",
+      "title": "Video Game Journalism",
+      "pubDate": "Fri, 13 Mar 2020 05:00:00 GMT",
+      "duration": "01:11:27",
+      "enclosure": {
+        "url": "https://anchor.fm/s/104b7e58/podcast/play/10800369/https%3A%2F%2Fd3ctxlq1ktw2nl.cloudfront.net%2Fproduction%2F2020-2-4%2F54156886-44100-2-250858059ba7f.mp3",
+        "length": "85749060",
+        "type": "audio/mpeg"
+      }
+    },
+    {
+      "guid": "62542a5a-2ddf-4379-85a3-6881e0c13185",
+      "title": "Fire Emblem Retrospective: Three Houses & The Future",
+      "pubDate": "Fri, 06 Mar 2020 06:00:00 GMT",
+      "duration": "00:43:01",
+      "enclosure": {
+        "url": "https://anchor.fm/s/104b7e58/podcast/play/10349081/https%3A%2F%2Fd3ctxlq1ktw2nl.cloudfront.net%2Fproduction%2F2020-1-13%2F48507748-44100-2-771a57b9d715c.mp3",
+        "length": "51629495",
+        "type": "audio/mpeg"
+      }
+    },
+    {
+      "guid": "3c83de88-7dec-46e4-89da-4f3b19e6a963",
+      "title": "Fire Emblem Retrospective: Fates & Shadows of Valentia",
+      "pubDate": "Fri, 28 Feb 2020 16:00:00 GMT",
+      "duration": "00:39:19",
+      "enclosure": {
+        "url": "https://anchor.fm/s/104b7e58/podcast/play/10348976/https%3A%2F%2Fd3ctxlq1ktw2nl.cloudfront.net%2Fproduction%2F2020-1-13%2F48506819-44100-2-ef1ab835a721a.mp3",
+        "length": "47193380",
+        "type": "audio/mpeg"
+      }
+    },
+    {
+      "guid": "d220044e-de1d-4f40-89de-10d091116f0a",
+      "title": "Fire Emblem Retrospective: Shadow Dragon & Awakening",
+      "pubDate": "Fri, 21 Feb 2020 06:00:00 GMT",
+      "duration": "00:41:46",
+      "enclosure": {
+        "url": "https://anchor.fm/s/104b7e58/podcast/play/10348853/https%3A%2F%2Fd3ctxlq1ktw2nl.cloudfront.net%2Fproduction%2F2020-1-13%2F48505648-44100-2-8984fa9e5fcd9.mp3",
+        "length": "50129544",
+        "type": "audio/mpeg"
+      }
+    },
+    {
+      "guid": "fadaf07e-72b9-4c34-b807-98d504dc3941",
+      "title": "Fire Emblem Retrospective: Path of Radiance & Radiant Dawn",
+      "pubDate": "Fri, 14 Feb 2020 06:00:00 GMT",
+      "duration": "00:47:24",
+      "enclosure": {
+        "url": "https://anchor.fm/s/104b7e58/podcast/play/10348764/https%3A%2F%2Fd3ctxlq1ktw2nl.cloudfront.net%2Fproduction%2F2020-1-13%2F48503294-44100-2-b2fb7feaa29e6.mp3",
+        "length": "56884817",
+        "type": "audio/mpeg"
+      }
+    },
+    {
+      "guid": "01b461dc-e149-4d69-b061-35f046b7a6ec",
+      "title": "Fire Emblem Retrospective: Fire Emblem (GBA) & The Sacred Stones",
+      "pubDate": "Fri, 07 Feb 2020 06:00:00 GMT",
+      "duration": "01:05:51",
+      "enclosure": {
+        "url": "https://traffic.megaphone.fm/APO5260780983.mp3",
+        "length": "63220088",
+        "type": "audio/mpeg"
+      }
+    },
+    {
+      "guid": "cf62778c-95fb-49c1-97f6-b76e8d57ac0d",
+      "title": "Video Game Difficulty and Balancing",
+      "pubDate": "Fri, 31 Jan 2020 06:00:00 GMT",
+      "duration": "01:24:10",
+      "enclosure": {
+        "url": "https://traffic.megaphone.fm/APO9410875412.mp3",
+        "length": "80816169",
+        "type": "audio/mpeg"
+      }
+    },
+    {
+      "guid": "093f24f1-db49-4e56-95c0-7dd880d28c94",
+      "title": "IGN Best Games of the Decade 2015 - 2019",
+      "pubDate": "Fri, 24 Jan 2020 06:00:00 GMT",
+      "duration": "01:17:11",
+      "enclosure": {
+        "url": "https://traffic.megaphone.fm/APO1773418311.mp3",
+        "length": "74111686",
+        "type": "audio/mpeg"
+      }
+    },
+    {
+      "guid": "2ec63d78-9cc2-4ded-a3fa-daa65cc7759f",
+      "title": "IGN Best Games of the Decade 2010 - 2014",
+      "pubDate": "Fri, 24 Jan 2020 06:00:00 GMT",
+      "duration": "00:55:53",
+      "enclosure": {
+        "url": "https://traffic.megaphone.fm/APO7503239223.mp3",
+        "length": "53664287",
+        "type": "audio/mpeg"
+      }
+    },
+    {
+      "guid": "9eaff6b2-cf83-4357-910c-824d99339d52",
+      "title": "Resident Evil Retrospective: Resident Evil 7 & Future",
+      "pubDate": "Fri, 17 Jan 2020 17:00:00 GMT",
+      "duration": "00:57:56",
+      "enclosure": {
+        "url": "https://traffic.megaphone.fm/APO1349961442.mp3",
+        "length": "55623680",
+        "type": "audio/mpeg"
+      }
+    },
+    {
+      "guid": "a8010b8b-ac63-4e0b-8c7c-033cad7b60d6",
+      "title": "Resident Evil Retrospective: Resident Evil 5 & Resident Evil 6",
+      "pubDate": "Fri, 10 Jan 2020 07:39:41 GMT",
+      "duration": "01:09:04",
+      "enclosure": {
+        "url": "https://traffic.megaphone.fm/APO4015739746.mp3",
+        "length": "66308806",
+        "type": "audio/mpeg"
+      }
+    },
+    {
+      "guid": "0355dee8-8bb8-451b-ab8b-51c312045a54",
+      "title": "Resident Evil Retrospective: Code Veronica & Resident Evil 4",
+      "pubDate": "Fri, 03 Jan 2020 03:11:57 GMT",
+      "duration": "01:00:55",
+      "enclosure": {
+        "url": "https://traffic.megaphone.fm/APO6297598056.mp3",
+        "length": "58492551",
+        "type": "audio/mpeg"
+      }
+    },
+    {
+      "guid": "04b1771e-221a-43d8-86e7-764ba459887c",
+      "title": "Resident Evil Retrospective: Resident Evil 2 & Resident Evil 3",
+      "pubDate": "Fri, 27 Dec 2019 23:03:14 GMT",
+      "duration": "00:57:34",
+      "enclosure": {
+        "url": "https://traffic.megaphone.fm/APO6780710520.mp3",
+        "length": "55275520",
+        "type": "audio/mpeg"
+      }
+    },
+    {
+      "guid": "c012a448-7167-4d2b-84a7-e1cfd90faac7",
+      "title": "Resident Evil Retrospective: Resident Evil 1 & Resident Evil 0",
+      "pubDate": "Fri, 27 Dec 2019 16:53:38 GMT",
+      "duration": "01:02:04",
+      "enclosure": {
+        "url": "https://traffic.megaphone.fm/APO7843006320.mp3",
+        "length": "59585933",
+        "type": "audio/mpeg"
+      }
+    }
+  ]
+}

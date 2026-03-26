@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="dark light" />
+    <title>Podcast Light</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="brand">
+        <div class="brand__title" id="showTitle">Podcast</div>
+        <div class="brand__subtitle" id="showSubtitle">Loading…</div>
+      </div>
+      <button class="iconbtn" id="btnToggleList" aria-label="Toggle episode list" title="Episodes">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path
+            d="M4 6.5h16M4 12h16M4 17.5h16"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+          />
+        </svg>
+      </button>
+    </header>
+
+    <main class="shell">
+      <section class="now" id="nowView" aria-label="Now playing">
+        <div class="now__meta">
+          <div class="now__episodeTitle" id="episodeTitle">Loading…</div>
+          <div class="now__episodeSub" id="episodeSub">—</div>
+        </div>
+
+        <div class="scrub">
+          <input
+            id="scrubber"
+            class="scrub__range"
+            type="range"
+            min="0"
+            max="1000"
+            value="0"
+            step="1"
+            aria-label="Seek"
+          />
+          <div class="scrub__time">
+            <span id="timeCur">0:00</span>
+            <span class="scrub__sep">/</span>
+            <span id="timeDur">0:00</span>
+          </div>
+        </div>
+
+        <div class="controls" role="group" aria-label="Playback controls">
+          <button class="iconbtn" id="btnBack" aria-label="Back 15 seconds" title="Back 15s">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path
+                d="M12 5a7 7 0 1 1-7 7"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+              />
+              <path
+                d="M5 8V5h3"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+              <path
+                d="M10.2 10.2c.6-.4 1.5-.7 2.6-.7 1.8 0 3.2.9 3.2 2.7 0 1.8-1.4 2.7-3.2 2.7-.9 0-1.7-.2-2.3-.5"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.6"
+                stroke-linecap="round"
+              />
+            </svg>
+          </button>
+
+          <button class="playbtn" id="btnPlay" aria-label="Play" title="Play/Pause">
+            <span class="playbtn__glyph" id="playGlyph" aria-hidden="true">▶</span>
+          </button>
+
+          <button class="iconbtn" id="btnForward" aria-label="Forward 30 seconds" title="Forward 30s">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path
+                d="M12 5a7 7 0 1 0 7 7"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+              />
+              <path
+                d="M19 8V5h-3"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+              <path
+                d="M11 10c.7-.4 1.6-.6 2.5-.6 1.8 0 3.2.9 3.2 2.7 0 1.8-1.4 2.7-3.2 2.7-.8 0-1.5-.1-2.1-.4"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.6"
+                stroke-linecap="round"
+              />
+              <path
+                d="M9.7 11.2v4.6"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.6"
+                stroke-linecap="round"
+              />
+            </svg>
+          </button>
+        </div>
+
+        <div class="actions" role="group" aria-label="Episode actions">
+          <a class="iconbtn" id="btnDownload" href="#" download aria-label="Download episode" title="Download">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path
+                d="M12 3v10"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+              />
+              <path
+                d="M8.5 10.5 12 13.9l3.5-3.4"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+              <path
+                d="M5 20h14"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+              />
+            </svg>
+          </a>
+          <button class="iconbtn" id="btnSpeed" aria-label="Playback speed" title="Speed">
+            <span id="speedLabel">1.0×</span>
+          </button>
+        </div>
+
+        <audio id="audio" preload="metadata" crossorigin="anonymous"></audio>
+      </section>
+
+      <aside class="list" id="listView" aria-label="Episode list" hidden>
+        <div class="list__head">
+          <div class="list__title">Episodes</div>
+          <button class="iconbtn" id="btnCloseList" aria-label="Close episode list" title="Close">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path
+                d="M6 6l12 12M18 6 6 18"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+              />
+            </svg>
+          </button>
+        </div>
+        <div class="list__items" id="episodeList" role="list"></div>
+      </aside>
+    </main>
+
+    <footer class="footer">
+      <div class="footer__hint">
+        Single-feed player. Source RSS:
+        <a
+          class="footer__link"
+          href="https://anchor.fm/s/104b7e58/podcast/rss"
+          target="_blank"
+          rel="noreferrer"
+        >
+          anchor.fm/s/104b7e58/podcast/rss
+        </a>
+      </div>
+    </footer>
+
+    <script src="./app.js" defer></script>
+  </body>
+</html>
