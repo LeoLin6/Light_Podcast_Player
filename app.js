@@ -14,6 +14,8 @@ const els = {
   btnBack: document.getElementById("btnBack"),
   btnForward: document.getElementById("btnForward"),
   btnDownload: document.getElementById("btnDownload"),
+  btnSleep: document.getElementById("btnSleep"),
+  sleepLabel: document.getElementById("sleepLabel"),
   btnSpeed: document.getElementById("btnSpeed"),
   speedLabel: document.getElementById("speedLabel"),
   audio: document.getElementById("audio"),
@@ -80,6 +82,8 @@ const LS_KEYS = {
   lastEpisodeId: "podcast_light:lastEpisodeId",
   lastTimeByIdPrefix: "podcast_light:lastTime:",
   speed: "podcast_light:speed",
+  sleepMinutes: "podcast_light:sleepMinutes",
+  sleepEnabled: "podcast_light:sleepEnabled",
 };
 
 function readSpeed() {
@@ -102,6 +106,26 @@ function readLastTime(id) {
 
 function writeLastTime(id, t) {
   localStorage.setItem(LS_KEYS.lastTimeByIdPrefix + id, String(Math.max(0, t)));
+}
+
+function readSleepMinutes() {
+  const raw = localStorage.getItem(LS_KEYS.sleepMinutes);
+  const n = Number(raw);
+  if (!Number.isFinite(n) || n <= 0) return 60;
+  return Math.round(n);
+}
+
+function readSleepEnabled() {
+  const raw = localStorage.getItem(LS_KEYS.sleepEnabled);
+  if (raw == null) return true; // auto-on by default
+  return raw === "true";
+}
+
+function writeSleepSettings({ enabled, minutes }) {
+  localStorage.setItem(LS_KEYS.sleepEnabled, String(Boolean(enabled)));
+  if (Number.isFinite(minutes) && minutes > 0) {
+    localStorage.setItem(LS_KEYS.sleepMinutes, String(Math.round(minutes)));
+  }
 }
 
 function setNowPlayingMeta({ showTitle, showSubtitle, epTitle, epSub }) {
@@ -254,6 +278,14 @@ function createPlayer(feed) {
   let activeId = null;
   let activeItem = null;
 
+  // Sleep timer (counts down while playing)
+  const sleepOptionsMinutes = [15, 30, 45, 60, 90, 120, 0]; // 0 = Off
+  let sleepEnabled = readSleepEnabled();
+  let sleepMinutes = readSleepMinutes();
+  let sleepRemainingMs = sleepEnabled ? sleepMinutes * 60_000 : 0;
+  let sleepLastTick = null;
+  let sleepInterval = null;
+
   const savedId = localStorage.getItem(LS_KEYS.lastEpisodeId);
   const first = items[0] || null;
   const initial = items.find((x) => episodeId(x) === savedId) || first;
@@ -261,6 +293,64 @@ function createPlayer(feed) {
   const audio = els.audio;
   audio.playbackRate = readSpeed();
   els.speedLabel.textContent = `${audio.playbackRate.toFixed(1)}×`;
+
+  function fmtSleepLabel() {
+    if (!sleepEnabled || sleepMinutes <= 0) return "Off";
+    // Show minutes remaining (rounded up), but keep compact.
+    const minsLeft = Math.max(0, Math.ceil(sleepRemainingMs / 60_000));
+    return `${minsLeft}m`;
+  }
+
+  function refreshSleepUi() {
+    els.sleepLabel.textContent = fmtSleepLabel();
+    const title = !sleepEnabled || sleepMinutes <= 0 ? "Sleep timer: Off" : `Sleep timer: ${fmtSleepLabel()} left`;
+    els.btnSleep.title = title;
+    els.btnSleep.setAttribute("aria-label", title);
+  }
+
+  function armSleepTimer(minutes) {
+    sleepMinutes = minutes;
+    if (sleepMinutes <= 0) {
+      sleepEnabled = false;
+      sleepRemainingMs = 0;
+      sleepLastTick = null;
+      writeSleepSettings({ enabled: false, minutes: sleepMinutes });
+      refreshSleepUi();
+      return;
+    }
+    sleepEnabled = true;
+    sleepRemainingMs = sleepMinutes * 60_000;
+    sleepLastTick = null;
+    writeSleepSettings({ enabled: true, minutes: sleepMinutes });
+    refreshSleepUi();
+  }
+
+  function ensureSleepIntervalRunning() {
+    if (sleepInterval) return;
+    sleepInterval = window.setInterval(() => {
+      if (!sleepEnabled || sleepMinutes <= 0) return;
+      if (audio.paused) {
+        sleepLastTick = null;
+        return;
+      }
+      const now = Date.now();
+      if (sleepLastTick == null) {
+        sleepLastTick = now;
+        return;
+      }
+      const dt = now - sleepLastTick;
+      sleepLastTick = now;
+      sleepRemainingMs = Math.max(0, sleepRemainingMs - dt);
+      refreshSleepUi();
+      if (sleepRemainingMs <= 0) {
+        // Time's up: pause playback.
+        audio.pause();
+        sleepEnabled = false;
+        writeSleepSettings({ enabled: false, minutes: sleepMinutes });
+        refreshSleepUi();
+      }
+    }, 500);
+  }
 
   function setActive(item, { autoplay = false } = {}) {
     if (!item) return;
@@ -349,6 +439,16 @@ function createPlayer(feed) {
     els.speedLabel.textContent = `${next.toFixed(1)}×`;
   });
 
+  els.btnSleep.addEventListener("click", () => {
+    // Cycle between options; default should include 60.
+    const curMinutes = sleepEnabled ? sleepMinutes : 0;
+    let idx = sleepOptionsMinutes.indexOf(curMinutes);
+    if (idx < 0) idx = sleepOptionsMinutes.indexOf(60);
+    const next = sleepOptionsMinutes[(idx + 1) % sleepOptionsMinutes.length];
+    armSleepTimer(next);
+    ensureSleepIntervalRunning();
+  });
+
   els.btnToggleList.addEventListener("click", () => toggleList(true));
   els.btnCloseList.addEventListener("click", () => toggleList(false));
 
@@ -399,6 +499,15 @@ function createPlayer(feed) {
   });
   renderList(items, episodeId(initial));
   setActive(initial, { autoplay: false });
+
+  // Initialize sleep timer UI + ticking (auto-on 60m by default)
+  if (sleepEnabled && sleepMinutes > 0) {
+    // Ensure we arm to get a clean full countdown.
+    armSleepTimer(sleepMinutes);
+  } else {
+    refreshSleepUi();
+  }
+  ensureSleepIntervalRunning();
 
   return { loadEpisodeById };
 }

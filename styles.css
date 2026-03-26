@@ -145,6 +145,10 @@ a{ color:inherit; }
   margin-top: 14px;
   padding: 8px 6px 0;
 }
+.actions .iconbtn{
+  font-variant-numeric: tabular-nums;
+  font-size: 12px;
+}
 
 .iconbtn{
   appearance:none;
