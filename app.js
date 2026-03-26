@@ -16,8 +16,6 @@ const els = {
   btnDownload: document.getElementById("btnDownload"),
   btnSleep: document.getElementById("btnSleep"),
   sleepLabel: document.getElementById("sleepLabel"),
-  btnSpeed: document.getElementById("btnSpeed"),
-  speedLabel: document.getElementById("speedLabel"),
   audio: document.getElementById("audio"),
   btnToggleList: document.getElementById("btnToggleList"),
   btnCloseList: document.getElementById("btnCloseList"),
@@ -81,21 +79,9 @@ function episodeId(item) {
 const LS_KEYS = {
   lastEpisodeId: "podcast_light:lastEpisodeId",
   lastTimeByIdPrefix: "podcast_light:lastTime:",
-  speed: "podcast_light:speed",
   sleepMinutes: "podcast_light:sleepMinutes",
   sleepEnabled: "podcast_light:sleepEnabled",
 };
-
-function readSpeed() {
-  const raw = localStorage.getItem(LS_KEYS.speed);
-  const n = Number(raw);
-  if (!Number.isFinite(n)) return 1.0;
-  return clamp(n, 0.5, 3.0);
-}
-
-function writeSpeed(n) {
-  localStorage.setItem(LS_KEYS.speed, String(n));
-}
 
 function readLastTime(id) {
   const raw = localStorage.getItem(LS_KEYS.lastTimeByIdPrefix + id);
@@ -291,8 +277,7 @@ function createPlayer(feed) {
   const initial = items.find((x) => episodeId(x) === savedId) || first;
 
   const audio = els.audio;
-  audio.playbackRate = readSpeed();
-  els.speedLabel.textContent = `${audio.playbackRate.toFixed(1)}×`;
+  audio.playbackRate = 1.0;
 
   function fmtSleepLabel() {
     if (!sleepEnabled || sleepMinutes <= 0) return "Off";
@@ -427,16 +412,6 @@ function createPlayer(feed) {
   els.btnForward.addEventListener("click", () => {
     const dur = Number.isFinite(audio.duration) ? audio.duration : Infinity;
     audio.currentTime = Math.min(dur, (audio.currentTime || 0) + 30);
-  });
-
-  els.btnSpeed.addEventListener("click", () => {
-    const steps = [0.8, 1.0, 1.2, 1.5, 1.8, 2.0, 2.5];
-    const cur = audio.playbackRate || 1.0;
-    const idx = steps.findIndex((s) => Math.abs(s - cur) < 0.01);
-    const next = steps[(idx + 1) % steps.length];
-    audio.playbackRate = next;
-    writeSpeed(next);
-    els.speedLabel.textContent = `${next.toFixed(1)}×`;
   });
 
   els.btnSleep.addEventListener("click", () => {
