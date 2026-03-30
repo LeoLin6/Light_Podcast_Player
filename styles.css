@@ -48,6 +48,12 @@ a{ color:inherit; }
   align-items:center;
   justify-content:space-between;
 }
+.topbar__actions{
+  display:flex;
+  align-items:center;
+  gap: 6px;
+  flex-shrink:0;
+}
 @media (prefers-color-scheme: light) {
   .topbar{
     background: linear-gradient(to bottom, rgba(255,255,255,.75), rgba(255,255,255,0));

@@ -17,6 +17,7 @@ const els = {
   btnSleep: document.getElementById("btnSleep"),
   sleepLabel: document.getElementById("sleepLabel"),
   audio: document.getElementById("audio"),
+  btnRandom: document.getElementById("btnRandom"),
   btnToggleList: document.getElementById("btnToggleList"),
   btnCloseList: document.getElementById("btnCloseList"),
   listView: document.getElementById("listView"),
@@ -391,6 +392,19 @@ function createPlayer(feed) {
     setActive(item, { autoplay });
   }
 
+  function pickRandomEpisodeId() {
+    const n = items.length;
+    if (n === 0) return null;
+    if (n === 1) return episodeId(items[0]);
+    let id = null;
+    for (let k = 0; k < 40; k++) {
+      const i = Math.floor(Math.random() * n);
+      id = episodeId(items[i]);
+      if (id !== activeId) break;
+    }
+    return id;
+  }
+
   // UI wiring
   els.btnPlay.addEventListener("click", async () => {
     if (!audio.src) return;
@@ -422,6 +436,11 @@ function createPlayer(feed) {
     const next = sleepOptionsMinutes[(idx + 1) % sleepOptionsMinutes.length];
     armSleepTimer(next);
     ensureSleepIntervalRunning();
+  });
+
+  els.btnRandom.addEventListener("click", () => {
+    const id = pickRandomEpisodeId();
+    if (id) loadEpisodeById(id, { autoplay: true });
   });
 
   els.btnToggleList.addEventListener("click", () => toggleList(true));
@@ -484,7 +503,7 @@ function createPlayer(feed) {
   }
   ensureSleepIntervalRunning();
 
-  return { loadEpisodeById };
+  return { loadEpisodeById, pickRandomEpisodeId };
 }
 
 async function boot() {
