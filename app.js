@@ -1,7 +1,8 @@
-const FEED_URL = "https://anchor.fm/s/104b7e58/podcast/rss";
-const FEED_JSON_PATH = "./feed.json";
+/* ES5 on purpose: iPhone 4 / iOS 7 Safari cannot parse modern JS. */
+var FEED_URL = "https://anchor.fm/s/104b7e58/podcast/rss";
+var FEED_JSON_PATH = "./feed.json";
 
-const els = {
+var els = {
   showTitle: document.getElementById("showTitle"),
   showSubtitle: document.getElementById("showSubtitle"),
   episodeTitle: document.getElementById("episodeTitle"),
@@ -21,27 +22,35 @@ const els = {
   btnToggleList: document.getElementById("btnToggleList"),
   btnCloseList: document.getElementById("btnCloseList"),
   listView: document.getElementById("listView"),
-  episodeList: document.getElementById("episodeList"),
+  episodeList: document.getElementById("episodeList")
 };
 
 function pad2(n) {
-  return String(n).padStart(2, "0");
+  n = String(n);
+  return n.length < 2 ? "0" + n : n;
+}
+
+function isNum(n) {
+  return typeof n === "number" && isFinite(n);
 }
 
 function fmtTime(sec) {
-  if (!Number.isFinite(sec) || sec <= 0) return "0:00";
-  const s = Math.floor(sec);
-  const h = Math.floor(s / 3600);
-  const m = Math.floor((s % 3600) / 60);
-  const r = s % 60;
-  if (h > 0) return `${h}:${pad2(m)}:${pad2(r)}`;
-  return `${m}:${pad2(r)}`;
+  if (!isNum(sec) || sec <= 0) return "0:00";
+  var s = Math.floor(sec);
+  var h = Math.floor(s / 3600);
+  var m = Math.floor((s % 3600) / 60);
+  var r = s % 60;
+  if (h > 0) return h + ":" + pad2(m) + ":" + pad2(r);
+  return m + ":" + pad2(r);
 }
 
+var MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+
 function fmtDate(isoOrRfc) {
-  const d = new Date(isoOrRfc);
-  if (Number.isNaN(d.getTime())) return "";
-  return d.toLocaleDateString(undefined, { year: "numeric", month: "short", day: "numeric" });
+  if (!isoOrRfc) return "";
+  var d = new Date(isoOrRfc);
+  if (isNaN(d.getTime())) return "";
+  return MONTHS[d.getMonth()] + " " + d.getDate() + ", " + d.getFullYear();
 }
 
 function clamp(v, min, max) {
@@ -52,74 +61,138 @@ function safeText(s) {
   return typeof s === "string" ? s : "";
 }
 
+function escapeHtml(s) {
+  return String(s)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;");
+}
+
 function getEnclosure(item) {
-  return item?.enclosure?.url || item?.enclosureUrl || item?.audioUrl || "";
+  if (!item) return "";
+  if (item.enclosure && item.enclosure.url) return item.enclosure.url;
+  if (item.enclosureUrl) return item.enclosureUrl;
+  if (item.audioUrl) return item.audioUrl;
+  return "";
 }
 
 function pickDurationSeconds(item) {
-  const raw = item?.duration ?? item?.itunesDuration ?? item?.itunes?.duration ?? item?.itunes_duration;
+  if (!item) return null;
+  var raw = item.duration;
+  if (raw == null && item.itunesDuration != null) raw = item.itunesDuration;
+  if (raw == null && item.itunes && item.itunes.duration != null) raw = item.itunes.duration;
+  if (raw == null && item.itunes_duration != null) raw = item.itunes_duration;
   if (raw == null) return null;
 
-  if (typeof raw === "number" && Number.isFinite(raw)) return raw;
-  const s = String(raw).trim();
+  if (typeof raw === "number" && isNum(raw)) return raw;
+  var s = String(raw).replace(/^\s+|\s+$/g, "");
 
-  // 01:05:29 / 55:48 / 3340
   if (/^\d+$/.test(s)) return Number(s);
-  const parts = s.split(":").map((p) => Number(p));
-  if (parts.some((n) => !Number.isFinite(n))) return null;
-  if (parts.length === 2) return parts[0] * 60 + parts[1];
-  if (parts.length === 3) return parts[0] * 3600 + parts[1] * 60 + parts[2];
+  var parts = s.split(":");
+  var nums = [];
+  var i;
+  for (i = 0; i < parts.length; i++) {
+    var n = Number(parts[i]);
+    if (!isNum(n)) return null;
+    nums.push(n);
+  }
+  if (nums.length === 2) return nums[0] * 60 + nums[1];
+  if (nums.length === 3) return nums[0] * 3600 + nums[1] * 60 + nums[2];
   return null;
 }
 
 function episodeId(item) {
-  // Prefer GUID; otherwise fall back to enclosure URL.
-  return safeText(item?.guid || item?.id || getEnclosure(item));
+  if (!item) return "";
+  return safeText(item.guid || item.id || getEnclosure(item));
 }
 
-const LS_KEYS = {
+var LS_KEYS = {
   lastEpisodeId: "podcast_light:lastEpisodeId",
   lastTimeByIdPrefix: "podcast_light:lastTime:",
   sleepMinutes: "podcast_light:sleepMinutes",
   sleepEnabled: "podcast_light:sleepEnabled",
+  shuffleSeen: "podcast_light:shuffleSeen"
 };
 
+function lsGet(key) {
+  try {
+    return window.localStorage.getItem(key);
+  } catch (e) {
+    return null;
+  }
+}
+
+function lsSet(key, val) {
+  try {
+    window.localStorage.setItem(key, val);
+  } catch (e) {}
+}
+
 function readLastTime(id) {
-  const raw = localStorage.getItem(LS_KEYS.lastTimeByIdPrefix + id);
-  const n = Number(raw);
-  if (!Number.isFinite(n) || n < 0) return 0;
+  var raw = lsGet(LS_KEYS.lastTimeByIdPrefix + id);
+  var n = Number(raw);
+  if (!isNum(n) || n < 0) return 0;
   return n;
 }
 
 function writeLastTime(id, t) {
-  localStorage.setItem(LS_KEYS.lastTimeByIdPrefix + id, String(Math.max(0, t)));
+  lsSet(LS_KEYS.lastTimeByIdPrefix + id, String(Math.max(0, t)));
 }
 
 function readSleepMinutes() {
-  const raw = localStorage.getItem(LS_KEYS.sleepMinutes);
-  const n = Number(raw);
-  if (!Number.isFinite(n) || n <= 0) return 60;
+  var raw = lsGet(LS_KEYS.sleepMinutes);
+  var n = Number(raw);
+  if (!isNum(n) || n <= 0) return 60;
   return Math.round(n);
 }
 
 function readSleepEnabled() {
-  const raw = localStorage.getItem(LS_KEYS.sleepEnabled);
-  if (raw == null) return true; // auto-on by default
+  var raw = lsGet(LS_KEYS.sleepEnabled);
+  if (raw == null) return true;
   return raw === "true";
 }
 
-function writeSleepSettings({ enabled, minutes }) {
-  localStorage.setItem(LS_KEYS.sleepEnabled, String(Boolean(enabled)));
-  if (Number.isFinite(minutes) && minutes > 0) {
-    localStorage.setItem(LS_KEYS.sleepMinutes, String(Math.round(minutes)));
+function writeSleepSettings(opts) {
+  lsSet(LS_KEYS.sleepEnabled, String(!!opts.enabled));
+  if (isNum(opts.minutes) && opts.minutes > 0) {
+    lsSet(LS_KEYS.sleepMinutes, String(Math.round(opts.minutes)));
   }
 }
 
-function setNowPlayingMeta({ showTitle, showSubtitle, epTitle, epSub }) {
-  els.showTitle.textContent = showTitle;
-  els.showSubtitle.textContent = showSubtitle;
-  els.episodeTitle.textContent = epTitle;
-  els.episodeSub.textContent = epSub;
+function loadShuffleSeen() {
+  var raw = lsGet(LS_KEYS.shuffleSeen);
+  if (!raw) return [];
+  try {
+    var parsed = JSON.parse(raw);
+    if (!parsed || parsed.length == null) return [];
+    var out = [];
+    var i;
+    for (i = 0; i < parsed.length; i++) {
+      if (typeof parsed[i] === "string" && parsed[i]) out.push(parsed[i]);
+    }
+    return out;
+  } catch (e) {
+    return [];
+  }
+}
+
+function saveShuffleSeen(ids) {
+  lsSet(LS_KEYS.shuffleSeen, JSON.stringify(ids));
+}
+
+function arrayContains(arr, id) {
+  var i;
+  for (i = 0; i < arr.length; i++) {
+    if (arr[i] === id) return true;
+  }
+  return false;
+}
+
+function setNowPlayingMeta(opts) {
+  els.showTitle.textContent = opts.showTitle;
+  els.showSubtitle.textContent = opts.showSubtitle;
+  els.episodeTitle.textContent = opts.epTitle;
+  els.episodeSub.textContent = opts.epSub;
 }
 
 function setPlayState(isPlaying) {
@@ -127,128 +200,171 @@ function setPlayState(isPlaying) {
   els.btnPlay.setAttribute("aria-label", isPlaying ? "Pause" : "Play");
 }
 
+function filenameFromUrl(url) {
+  if (!url) return "episode";
+  var path = url.split("?")[0];
+  var parts = path.split("/");
+  var i;
+  for (i = parts.length - 1; i >= 0; i--) {
+    if (parts[i]) return parts[i];
+  }
+  return "episode";
+}
+
 function setDownloadUrl(url) {
   if (!url) {
     els.btnDownload.setAttribute("href", "#");
     els.btnDownload.setAttribute("aria-disabled", "true");
-    els.btnDownload.classList.add("is-disabled");
+    els.btnDownload.className = els.btnDownload.className.replace(/\bis-disabled\b/g, "") + " is-disabled";
     return;
   }
-  els.btnDownload.classList.remove("is-disabled");
+  els.btnDownload.className = els.btnDownload.className.replace(/\bis-disabled\b/g, "");
   els.btnDownload.removeAttribute("aria-disabled");
   els.btnDownload.setAttribute("href", url);
-  try {
-    const u = new URL(url);
-    const filename = u.pathname.split("/").filter(Boolean).at(-1) || "episode";
-    els.btnDownload.setAttribute("download", filename);
-  } catch {
-    els.btnDownload.setAttribute("download", "episode");
-  }
+  els.btnDownload.setAttribute("download", filenameFromUrl(url));
+}
+
+function isListOpen() {
+  return els.listView.getAttribute("hidden") == null;
 }
 
 function toggleList(open) {
-  const shouldOpen = open ?? els.listView.hidden;
-  els.listView.hidden = !shouldOpen;
+  var shouldOpen = typeof open === "boolean" ? open : !isListOpen();
+  if (shouldOpen) {
+    els.listView.removeAttribute("hidden");
+    els.listView.style.display = "";
+  } else {
+    els.listView.setAttribute("hidden", "hidden");
+    els.listView.style.display = "none";
+  }
+}
+
+function isInside(el, ancestor) {
+  while (el) {
+    if (el === ancestor) return true;
+    el = el.parentNode;
+  }
+  return false;
 }
 
 function renderList(items, activeId) {
   els.episodeList.innerHTML = "";
-  for (const it of items) {
-    const id = episodeId(it);
-    const title = safeText(it.title) || "(untitled)";
-    const date = fmtDate(it.pubDate || it.published || it.date);
-    const dur = pickDurationSeconds(it);
-    const durText = dur ? fmtTime(dur) : "";
-    const enclosure = getEnclosure(it);
+  var i;
+  for (i = 0; i < items.length; i++) {
+    (function (it) {
+      var id = episodeId(it);
+      var title = safeText(it.title) || "(untitled)";
+      var date = fmtDate(it.pubDate || it.published || it.date);
+      var dur = pickDurationSeconds(it);
+      var durText = dur ? fmtTime(dur) : "";
+      var enclosure = getEnclosure(it);
 
-    const row = document.createElement("div");
-    row.className = "item" + (id === activeId ? " item--active" : "");
-    row.setAttribute("role", "listitem");
-    row.dataset.id = id;
+      var row = document.createElement("div");
+      row.className = "item" + (id === activeId ? " item--active" : "");
+      row.setAttribute("role", "listitem");
+      row.setAttribute("data-id", id);
 
-    const left = document.createElement("div");
-    left.className = "item__left";
-    left.textContent = id === activeId ? "▸" : " ";
+      var left = document.createElement("div");
+      left.className = "item__left";
+      left.textContent = id === activeId ? "▸" : " ";
 
-    const main = document.createElement("div");
-    main.className = "item__main";
+      var main = document.createElement("div");
+      main.className = "item__main";
 
-    const t = document.createElement("div");
-    t.className = "item__title";
-    t.textContent = title;
+      var t = document.createElement("div");
+      t.className = "item__title";
+      t.textContent = title;
 
-    const sub = document.createElement("div");
-    sub.className = "item__sub";
-    if (date) {
-      const s = document.createElement("span");
-      s.className = "badge";
-      s.textContent = date;
-      sub.appendChild(s);
-    }
-    if (durText) {
-      const s = document.createElement("span");
-      s.className = "badge";
-      s.textContent = durText;
-      sub.appendChild(s);
-    }
+      var sub = document.createElement("div");
+      sub.className = "item__sub";
+      if (date) {
+        var sDate = document.createElement("span");
+        sDate.className = "badge";
+        sDate.textContent = date;
+        sub.appendChild(sDate);
+      }
+      if (durText) {
+        var sDur = document.createElement("span");
+        sDur.className = "badge";
+        sDur.textContent = durText;
+        sub.appendChild(sDur);
+      }
 
-    main.appendChild(t);
-    main.appendChild(sub);
+      main.appendChild(t);
+      main.appendChild(sub);
 
-    const right = document.createElement("div");
-    right.className = "item__right";
+      var right = document.createElement("div");
+      right.className = "item__right";
 
-    const dl = document.createElement("a");
-    dl.className = "iconbtn item__dl";
-    dl.href = enclosure || "#";
-    dl.setAttribute("aria-label", "Download");
-    dl.setAttribute("title", "Download");
-    dl.innerHTML = `
-      <svg viewBox="0 0 24 24" aria-hidden="true">
-        <path d="M12 3v10" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-        <path d="M8.5 10.5 12 13.9l3.5-3.4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-        <path d="M5 20h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-      </svg>
-    `;
-    if (!enclosure) dl.setAttribute("aria-disabled", "true");
+      var dl = document.createElement("a");
+      dl.className = "iconbtn item__dl";
+      dl.href = enclosure || "#";
+      dl.setAttribute("aria-label", "Download");
+      dl.setAttribute("title", "Download");
+      dl.innerHTML =
+        '<svg viewBox="0 0 24 24" aria-hidden="true">' +
+        '<path d="M12 3v10" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>' +
+        '<path d="M8.5 10.5 12 13.9l3.5-3.4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>' +
+        '<path d="M5 20h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>' +
+        "</svg>";
+      if (!enclosure) dl.setAttribute("aria-disabled", "true");
 
-    right.appendChild(dl);
+      right.appendChild(dl);
+      row.appendChild(left);
+      row.appendChild(main);
+      row.appendChild(right);
 
-    row.appendChild(left);
-    row.appendChild(main);
-    row.appendChild(right);
+      row.onclick = function (e) {
+        var target = e.target || e.srcElement;
+        if (isInside(target, dl)) return;
+        if (window.__player && window.__player.loadEpisodeById) {
+          window.__player.loadEpisodeById(id, { autoplay: true });
+        }
+        toggleList(false);
+      };
 
-    row.addEventListener("click", (e) => {
-      // Allow direct download without switching episode if user clicked the download button.
-      const a = e.target?.closest?.("a");
-      if (a && a === dl) return;
-      window.__player?.loadEpisodeById?.(id, { autoplay: true });
-      toggleList(false);
-    });
-
-    els.episodeList.appendChild(row);
+      els.episodeList.appendChild(row);
+    })(items[i]);
   }
 }
 
-async function loadFeedJson() {
-  const res = await fetch(FEED_JSON_PATH, { cache: "no-store" });
-  if (!res.ok) throw new Error(`Failed to load feed.json (${res.status})`);
-  const data = await res.json();
-
-  // Single-feed limitation: enforce the expected URL if present.
-  if (data?.feedUrl && data.feedUrl !== FEED_URL) {
-    throw new Error("This build is locked to a different RSS feed.");
+function loadFeedJson(onOk, onErr) {
+  var xhr = new XMLHttpRequest();
+  xhr.open("GET", FEED_JSON_PATH, true);
+  try {
+    xhr.setRequestHeader("Cache-Control", "no-store");
+  } catch (e) {}
+  xhr.onreadystatechange = function () {
+    if (xhr.readyState !== 4) return;
+    if (xhr.status !== 200 && xhr.status !== 0) {
+      onErr(new Error("Failed to load feed.json (" + xhr.status + ")"));
+      return;
+    }
+    try {
+      var data = JSON.parse(xhr.responseText);
+      if (data && data.feedUrl && data.feedUrl !== FEED_URL) {
+        onErr(new Error("This build is locked to a different RSS feed."));
+        return;
+      }
+      onOk(data);
+    } catch (err) {
+      onErr(err);
+    }
+  };
+  try {
+    xhr.send(null);
+  } catch (err) {
+    onErr(err);
   }
-  return data;
 }
 
 function inferShowSubtitle(feed) {
-  const parts = [];
-  const lang = feed?.language ? String(feed.language) : "";
+  var parts = [];
+  var lang = feed && feed.language ? String(feed.language) : "";
   if (lang) parts.push(lang.toUpperCase());
-  const lastBuild = feed?.lastBuildDate || feed?.lastBuild || feed?.lastUpdated;
-  if (lastBuild) parts.push(`Updated ${fmtDate(lastBuild)}`);
-  return parts.join(" · ") || "Single-feed player";
+  var lastBuild = (feed && (feed.lastBuildDate || feed.lastBuild || feed.lastUpdated)) || "";
+  if (lastBuild) parts.push("Updated " + fmtDate(lastBuild));
+  return parts.length ? parts.join(" · ") : "Single-feed player";
 }
 
 function ensureAudioUrl(url) {
@@ -256,40 +372,83 @@ function ensureAudioUrl(url) {
   return url;
 }
 
+function findItemById(items, id) {
+  var i;
+  for (i = 0; i < items.length; i++) {
+    if (episodeId(items[i]) === id) return items[i];
+  }
+  return null;
+}
+
+function indexOfValue(arr, val) {
+  var i;
+  for (i = 0; i < arr.length; i++) {
+    if (arr[i] === val) return i;
+  }
+  return -1;
+}
+
+function tryPlay(audio) {
+  try {
+    var maybe = audio.play();
+    if (maybe && typeof maybe.catch === "function") maybe.catch(function () {});
+  } catch (e) {}
+}
+
 function createPlayer(feed) {
-  const items = Array.isArray(feed?.items) ? feed.items : [];
+  var items = feed && feed.items && feed.items.length != null ? feed.items : [];
+  var showTitle = safeText(feed && feed.title) || "Podcast";
+  var showSubtitle = inferShowSubtitle(feed);
 
-  const showTitle = safeText(feed?.title) || "Podcast";
-  const showSubtitle = inferShowSubtitle(feed);
+  var activeId = null;
+  var activeItem = null;
 
-  let activeId = null;
-  let activeItem = null;
+  var sleepOptionsMinutes = [15, 30, 45, 60, 90, 120, 0];
+  var sleepEnabled = readSleepEnabled();
+  var sleepMinutes = readSleepMinutes();
+  var sleepRemainingMs = sleepEnabled ? sleepMinutes * 60000 : 0;
+  var sleepLastTick = null;
+  var sleepInterval = null;
 
-  // Sleep timer (counts down while playing)
-  const sleepOptionsMinutes = [15, 30, 45, 60, 90, 120, 0]; // 0 = Off
-  let sleepEnabled = readSleepEnabled();
-  let sleepMinutes = readSleepMinutes();
-  let sleepRemainingMs = sleepEnabled ? sleepMinutes * 60_000 : 0;
-  let sleepLastTick = null;
-  let sleepInterval = null;
+  var savedId = lsGet(LS_KEYS.lastEpisodeId);
+  var first = items.length ? items[0] : null;
+  var initial = findItemById(items, savedId) || first;
 
-  const savedId = localStorage.getItem(LS_KEYS.lastEpisodeId);
-  const first = items[0] || null;
-  const initial = items.find((x) => episodeId(x) === savedId) || first;
-
-  const audio = els.audio;
+  var audio = els.audio;
   audio.playbackRate = 1.0;
+
+  function allEpisodeIds() {
+    var ids = [];
+    var i;
+    for (i = 0; i < items.length; i++) ids.push(episodeId(items[i]));
+    return ids;
+  }
+
+  function markShuffleSeen(id) {
+    if (!id) return;
+    var seen = loadShuffleSeen();
+    var valid = {};
+    var ids = allEpisodeIds();
+    var i;
+    for (i = 0; i < ids.length; i++) valid[ids[i]] = true;
+    var next = [];
+    for (i = 0; i < seen.length; i++) {
+      if (valid[seen[i]] && !arrayContains(next, seen[i])) next.push(seen[i]);
+    }
+    if (!arrayContains(next, id) && valid[id]) next.push(id);
+    saveShuffleSeen(next);
+  }
 
   function fmtSleepLabel() {
     if (!sleepEnabled || sleepMinutes <= 0) return "Off";
-    // Show minutes remaining (rounded up), but keep compact.
-    const minsLeft = Math.max(0, Math.ceil(sleepRemainingMs / 60_000));
-    return `${minsLeft}m`;
+    var minsLeft = Math.max(0, Math.ceil(sleepRemainingMs / 60000));
+    return minsLeft + "m";
   }
 
   function refreshSleepUi() {
     els.sleepLabel.textContent = fmtSleepLabel();
-    const title = !sleepEnabled || sleepMinutes <= 0 ? "Sleep timer: Off" : `Sleep timer: ${fmtSleepLabel()} left`;
+    var title =
+      !sleepEnabled || sleepMinutes <= 0 ? "Sleep timer: Off" : "Sleep timer: " + fmtSleepLabel() + " left";
     els.btnSleep.title = title;
     els.btnSleep.setAttribute("aria-label", title);
   }
@@ -305,7 +464,7 @@ function createPlayer(feed) {
       return;
     }
     sleepEnabled = true;
-    sleepRemainingMs = sleepMinutes * 60_000;
+    sleepRemainingMs = sleepMinutes * 60000;
     sleepLastTick = null;
     writeSleepSettings({ enabled: true, minutes: sleepMinutes });
     refreshSleepUi();
@@ -313,23 +472,22 @@ function createPlayer(feed) {
 
   function ensureSleepIntervalRunning() {
     if (sleepInterval) return;
-    sleepInterval = window.setInterval(() => {
+    sleepInterval = window.setInterval(function () {
       if (!sleepEnabled || sleepMinutes <= 0) return;
       if (audio.paused) {
         sleepLastTick = null;
         return;
       }
-      const now = Date.now();
+      var now = new Date().getTime();
       if (sleepLastTick == null) {
         sleepLastTick = now;
         return;
       }
-      const dt = now - sleepLastTick;
+      var dt = now - sleepLastTick;
       sleepLastTick = now;
       sleepRemainingMs = Math.max(0, sleepRemainingMs - dt);
       refreshSleepUi();
       if (sleepRemainingMs <= 0) {
-        // Time's up: pause playback.
         audio.pause();
         sleepEnabled = false;
         writeSleepSettings({ enabled: false, minutes: sleepMinutes });
@@ -338,212 +496,255 @@ function createPlayer(feed) {
     }, 500);
   }
 
-  function setActive(item, { autoplay = false } = {}) {
+  function setActive(item, opts) {
+    opts = opts || {};
+    var autoplay = !!opts.autoplay;
     if (!item) return;
     activeItem = item;
     activeId = episodeId(item);
-    localStorage.setItem(LS_KEYS.lastEpisodeId, activeId);
+    lsSet(LS_KEYS.lastEpisodeId, activeId);
+    markShuffleSeen(activeId);
 
-    const title = safeText(item.title) || "(untitled)";
-    const date = fmtDate(item.pubDate || item.published || item.date);
-    const dur = pickDurationSeconds(item);
-    const durText = dur ? fmtTime(dur) : "";
-    const sub = [date, durText].filter(Boolean).join(" · ") || " ";
+    var title = safeText(item.title) || "(untitled)";
+    var date = fmtDate(item.pubDate || item.published || item.date);
+    var dur = pickDurationSeconds(item);
+    var durText = dur ? fmtTime(dur) : "";
+    var bits = [];
+    if (date) bits.push(date);
+    if (durText) bits.push(durText);
+    var sub = bits.length ? bits.join(" · ") : " ";
 
     setNowPlayingMeta({
-      showTitle,
-      showSubtitle,
+      showTitle: showTitle,
+      showSubtitle: showSubtitle,
       epTitle: title,
-      epSub: sub,
+      epSub: sub
     });
 
-    const url = ensureAudioUrl(getEnclosure(item));
+    var url = ensureAudioUrl(getEnclosure(item));
     setDownloadUrl(url);
 
-    const previousSrc = audio.currentSrc;
+    var previousSrc = audio.currentSrc || "";
     audio.src = url;
-    audio.load();
+    try {
+      audio.load();
+    } catch (e) {}
 
     renderList(items, activeId);
 
-    // Restore position on metadata load (same episode).
-    const restore = () => {
-      audio.removeEventListener("loadedmetadata", restore);
-      const t = readLastTime(activeId);
-      if (t > 0 && Number.isFinite(audio.duration)) {
+    function restore() {
+      if (audio.removeEventListener) {
+        audio.removeEventListener("loadedmetadata", restore, false);
+      } else {
+        audio.detachEvent("onloadedmetadata", restore);
+      }
+      var t = readLastTime(activeId);
+      if (t > 0 && isNum(audio.duration)) {
         audio.currentTime = clamp(t, 0, Math.max(0, audio.duration - 0.5));
       }
-      if (autoplay) void audio.play();
-    };
-    audio.addEventListener("loadedmetadata", restore);
+    }
+    if (audio.addEventListener) {
+      audio.addEventListener("loadedmetadata", restore, false);
+    } else if (audio.attachEvent) {
+      audio.attachEvent("onloadedmetadata", restore);
+    }
 
-    // If switching episodes, reset UI immediately.
     if (previousSrc && previousSrc !== url) {
       els.scrubber.value = "0";
       els.timeCur.textContent = "0:00";
       els.timeDur.textContent = "0:00";
       setPlayState(false);
     }
+
+    // Play in the same call stack as the tap so iOS 7 allows playback.
+    if (autoplay) tryPlay(audio);
   }
 
-  function loadEpisodeById(id, { autoplay = false } = {}) {
-    const item = items.find((x) => episodeId(x) === id);
+  function loadEpisodeById(id, opts) {
+    var item = findItemById(items, id);
     if (!item) return;
-    setActive(item, { autoplay });
+    setActive(item, opts);
   }
 
   function pickRandomEpisodeId() {
-    const n = items.length;
+    var ids = allEpisodeIds();
+    var n = ids.length;
     if (n === 0) return null;
-    if (n === 1) return episodeId(items[0]);
-    let id = null;
-    for (let k = 0; k < 40; k++) {
-      const i = Math.floor(Math.random() * n);
-      id = episodeId(items[i]);
-      if (id !== activeId) break;
+    if (n === 1) return ids[0];
+
+    var valid = {};
+    var i;
+    for (i = 0; i < n; i++) valid[ids[i]] = true;
+
+    var seen = loadShuffleSeen();
+    var seenOk = [];
+    for (i = 0; i < seen.length; i++) {
+      if (valid[seen[i]] && !arrayContains(seenOk, seen[i])) seenOk.push(seen[i]);
     }
-    return id;
+
+    var seenMap = {};
+    for (i = 0; i < seenOk.length; i++) seenMap[seenOk[i]] = true;
+
+    var pool = [];
+    for (i = 0; i < n; i++) {
+      if (ids[i] !== activeId && !seenMap[ids[i]]) pool.push(ids[i]);
+    }
+
+    if (!pool.length) {
+      seenOk = activeId ? [activeId] : [];
+      saveShuffleSeen(seenOk);
+      pool = [];
+      for (i = 0; i < n; i++) {
+        if (ids[i] !== activeId) pool.push(ids[i]);
+      }
+    }
+
+    if (!pool.length) return activeId;
+    return pool[Math.floor(Math.random() * pool.length)];
   }
 
-  // UI wiring
-  els.btnPlay.addEventListener("click", async () => {
+  function on(el, type, fn) {
+    if (!el) return;
+    if (el.addEventListener) el.addEventListener(type, fn, false);
+    else if (el.attachEvent) el.attachEvent("on" + type, fn);
+  }
+
+  on(els.btnPlay, "click", function () {
     if (!audio.src) return;
-    if (audio.paused) {
-      try {
-        await audio.play();
-      } catch {
-        // ignored
-      }
-    } else {
-      audio.pause();
-    }
+    if (audio.paused) tryPlay(audio);
+    else audio.pause();
   });
 
-  els.btnBack.addEventListener("click", () => {
+  on(els.btnBack, "click", function () {
     audio.currentTime = Math.max(0, (audio.currentTime || 0) - 15);
   });
 
-  els.btnForward.addEventListener("click", () => {
-    const dur = Number.isFinite(audio.duration) ? audio.duration : Infinity;
+  on(els.btnForward, "click", function () {
+    var dur = isNum(audio.duration) ? audio.duration : Infinity;
     audio.currentTime = Math.min(dur, (audio.currentTime || 0) + 30);
   });
 
-  els.btnSleep.addEventListener("click", () => {
-    // Cycle between options; default should include 60.
-    const curMinutes = sleepEnabled ? sleepMinutes : 0;
-    let idx = sleepOptionsMinutes.indexOf(curMinutes);
-    if (idx < 0) idx = sleepOptionsMinutes.indexOf(60);
-    const next = sleepOptionsMinutes[(idx + 1) % sleepOptionsMinutes.length];
+  on(els.btnSleep, "click", function () {
+    var curMinutes = sleepEnabled ? sleepMinutes : 0;
+    var idx = indexOfValue(sleepOptionsMinutes, curMinutes);
+    if (idx < 0) idx = indexOfValue(sleepOptionsMinutes, 60);
+    var next = sleepOptionsMinutes[(idx + 1) % sleepOptionsMinutes.length];
     armSleepTimer(next);
     ensureSleepIntervalRunning();
   });
 
-  els.btnRandom.addEventListener("click", () => {
-    const id = pickRandomEpisodeId();
+  on(els.btnRandom, "click", function () {
+    var id = pickRandomEpisodeId();
     if (id) loadEpisodeById(id, { autoplay: true });
   });
 
-  els.btnToggleList.addEventListener("click", () => toggleList(true));
-  els.btnCloseList.addEventListener("click", () => toggleList(false));
-
-  els.scrubber.addEventListener("input", () => {
-    const max = Number(els.scrubber.max) || 1000;
-    const p = Number(els.scrubber.value) / max;
-    if (Number.isFinite(audio.duration) && audio.duration > 0) {
-      audio.currentTime = clamp(p * audio.duration, 0, audio.duration);
-    }
+  on(els.btnToggleList, "click", function () {
+    toggleList(true);
+  });
+  on(els.btnCloseList, "click", function () {
+    toggleList(false);
   });
 
-  audio.addEventListener("timeupdate", () => {
-    const cur = audio.currentTime || 0;
+  function onScrub() {
+    var max = Number(els.scrubber.max) || 1000;
+    var p = Number(els.scrubber.value) / max;
+    if (isNum(audio.duration) && audio.duration > 0) {
+      audio.currentTime = clamp(p * audio.duration, 0, audio.duration);
+    }
+  }
+  on(els.scrubber, "input", onScrub);
+  on(els.scrubber, "change", onScrub);
+
+  on(audio, "timeupdate", function () {
+    var cur = audio.currentTime || 0;
     els.timeCur.textContent = fmtTime(cur);
 
-    if (Number.isFinite(audio.duration) && audio.duration > 0) {
+    if (isNum(audio.duration) && audio.duration > 0) {
       els.timeDur.textContent = fmtTime(audio.duration);
-      const max = Number(els.scrubber.max) || 1000;
-      const p = clamp(cur / audio.duration, 0, 1);
+      var max = Number(els.scrubber.max) || 1000;
+      var p = clamp(cur / audio.duration, 0, 1);
       els.scrubber.value = String(Math.round(p * max));
     }
   });
 
-  audio.addEventListener("durationchange", () => {
+  on(audio, "durationchange", function () {
     els.timeDur.textContent = fmtTime(audio.duration || 0);
   });
 
-  audio.addEventListener("play", () => setPlayState(true));
-  audio.addEventListener("pause", () => setPlayState(false));
-  audio.addEventListener("ended", () => setPlayState(false));
+  on(audio, "play", function () {
+    setPlayState(true);
+  });
+  on(audio, "pause", function () {
+    setPlayState(false);
+  });
+  on(audio, "ended", function () {
+    setPlayState(false);
+  });
 
-  // Persist listening position periodically
-  let lastSavedAt = 0;
-  audio.addEventListener("timeupdate", () => {
+  var lastSavedAt = 0;
+  on(audio, "timeupdate", function () {
     if (!activeId) return;
-    const now = Date.now();
+    var now = new Date().getTime();
     if (now - lastSavedAt < 2500) return;
     lastSavedAt = now;
     writeLastTime(activeId, audio.currentTime || 0);
   });
 
-  // Initial render
   setNowPlayingMeta({
-    showTitle,
-    showSubtitle,
+    showTitle: showTitle,
+    showSubtitle: showSubtitle,
     epTitle: "Loading…",
-    epSub: " ",
+    epSub: " "
   });
   renderList(items, episodeId(initial));
   setActive(initial, { autoplay: false });
 
-  // Initialize sleep timer UI + ticking (auto-on 60m by default)
   if (sleepEnabled && sleepMinutes > 0) {
-    // Ensure we arm to get a clean full countdown.
     armSleepTimer(sleepMinutes);
   } else {
     refreshSleepUi();
   }
   ensureSleepIntervalRunning();
 
-  return { loadEpisodeById, pickRandomEpisodeId };
+  return { loadEpisodeById: loadEpisodeById, pickRandomEpisodeId: pickRandomEpisodeId };
 }
 
-async function boot() {
-  try {
-    const feed = await loadFeedJson();
-    window.__player = createPlayer(feed);
-  } catch (err) {
-    const msg = err instanceof Error ? err.message : String(err);
-    setNowPlayingMeta({
-      showTitle: "Podcast",
-      showSubtitle: "Feed not ready",
-      epTitle: "Run the feed builder",
-      epSub: "Then refresh this page.",
-    });
-    els.episodeList.innerHTML = `
-      <div class="item" role="listitem" style="cursor: default;">
-        <div class="item__left">!</div>
-        <div class="item__main">
-          <div class="item__title">Missing or invalid \`feed.json\`</div>
-          <div class="item__sub">
-            <span class="badge">Error</span>
-            <span class="badge">${msg.replaceAll("<", "&lt;").replaceAll(">", "&gt;")}</span>
-          </div>
-        </div>
-      </div>
-      <div class="item" role="listitem" style="cursor: default;">
-        <div class="item__left"> </div>
-        <div class="item__main">
-          <div class="item__title">Fix</div>
-          <div class="item__sub">
-            <span class="badge">Run</span>
-            <span class="badge">npm install</span>
-            <span class="badge">npm run update</span>
-          </div>
-        </div>
-      </div>
-    `;
-    toggleList(true);
-  }
+function boot() {
+  loadFeedJson(
+    function (feed) {
+      window.__player = createPlayer(feed);
+    },
+    function (err) {
+      var msg = err && err.message ? err.message : String(err);
+      setNowPlayingMeta({
+        showTitle: "Podcast",
+        showSubtitle: "Feed not ready",
+        epTitle: "Run the feed builder",
+        epSub: "Then refresh this page."
+      });
+      els.episodeList.innerHTML =
+        '<div class="item" role="listitem" style="cursor: default;">' +
+        '<div class="item__left">!</div>' +
+        '<div class="item__main">' +
+        '<div class="item__title">Missing or invalid feed.json</div>' +
+        '<div class="item__sub">' +
+        '<span class="badge">Error</span>' +
+        '<span class="badge">' +
+        escapeHtml(msg) +
+        "</span>" +
+        "</div></div></div>" +
+        '<div class="item" role="listitem" style="cursor: default;">' +
+        '<div class="item__left"> </div>' +
+        '<div class="item__main">' +
+        '<div class="item__title">Fix</div>' +
+        '<div class="item__sub">' +
+        '<span class="badge">Run</span>' +
+        '<span class="badge">npm install</span>' +
+        '<span class="badge">npm run update</span>' +
+        "</div></div></div>";
+      toggleList(true);
+    }
+  );
 }
 
 boot();
-
