@@ -3,7 +3,8 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "update": "node ./scripts/update-feed.mjs"
+    "update": "node ./scripts/update-feed.mjs",
+    "download": "node ./scripts/download-episodes.mjs"
   },
   "dependencies": {
     "fast-xml-parser": "^5.2.5"

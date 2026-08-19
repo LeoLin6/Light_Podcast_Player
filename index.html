@@ -9,7 +9,7 @@
     <title>Podcast Light</title>
     <link rel="stylesheet" href="./styles.css" />
   </head>
-  <body>
+  <body ontouchstart="">
     <header class="topbar">
       <div class="brand">
         <div class="brand__title" id="showTitle">Podcast</div>
@@ -134,6 +134,11 @@
           </button>
         </div>
 
+        <div class="play-hint" id="playHint" hidden>
+          If ▶ does nothing, use the player bar below.
+        </div>
+        <audio id="audio" preload="auto"></audio>
+
         <div class="actions" role="group" aria-label="Episode actions">
           <a class="iconbtn" id="btnDownload" href="#" download aria-label="Download episode" title="Download">
             <svg viewBox="0 0 24 24" aria-hidden="true">
@@ -166,7 +171,6 @@
           </button>
         </div>
 
-        <audio id="audio" preload="none"></audio>
       </section>
 
       <aside class="list" id="listView" aria-label="Episode list" hidden>

@@ -22,7 +22,8 @@ var els = {
   btnToggleList: document.getElementById("btnToggleList"),
   btnCloseList: document.getElementById("btnCloseList"),
   listView: document.getElementById("listView"),
-  episodeList: document.getElementById("episodeList")
+  episodeList: document.getElementById("episodeList"),
+  playHint: document.getElementById("playHint")
 };
 
 function pad2(n) {
@@ -68,12 +69,36 @@ function escapeHtml(s) {
     .replace(/>/g, "&gt;");
 }
 
+function isOldIOS() {
+  var ua = navigator.userAgent || "";
+  return /iP(hone|ad|od).*OS [1-8]_/.test(ua);
+}
+
+function unwrapAudioUrl(url) {
+  if (!url) return "";
+  var lower = url.toLowerCase();
+  var token = "https%3a%2f%2f";
+  var idx = lower.lastIndexOf(token);
+  if (idx === -1) {
+    token = "http%3a%2f%2f";
+    idx = lower.lastIndexOf(token);
+  }
+  if (idx !== -1) {
+    try {
+      var decoded = decodeURIComponent(url.substring(idx));
+      if (decoded.indexOf("http") === 0) return decoded;
+    } catch (e) {}
+  }
+  return url;
+}
+
 function getEnclosure(item) {
   if (!item) return "";
-  if (item.enclosure && item.enclosure.url) return item.enclosure.url;
-  if (item.enclosureUrl) return item.enclosureUrl;
-  if (item.audioUrl) return item.audioUrl;
-  return "";
+  var url = "";
+  if (item.enclosure && item.enclosure.url) url = item.enclosure.url;
+  else if (item.enclosureUrl) url = item.enclosureUrl;
+  else if (item.audioUrl) url = item.audioUrl;
+  return unwrapAudioUrl(url);
 }
 
 function pickDurationSeconds(item) {
@@ -395,6 +420,25 @@ function tryPlay(audio) {
   } catch (e) {}
 }
 
+function bindTap(el, fn) {
+  if (!el) return;
+  var locked = false;
+  function run(e) {
+    if (locked) return;
+    locked = true;
+    window.setTimeout(function () {
+      locked = false;
+    }, 650);
+    fn(e);
+  }
+  if (el.addEventListener) {
+    el.addEventListener("touchstart", run, false);
+    el.addEventListener("click", run, false);
+  } else if (el.attachEvent) {
+    el.attachEvent("onclick", run);
+  }
+}
+
 function createPlayer(feed) {
   var items = feed && feed.items && feed.items.length != null ? feed.items : [];
   var showTitle = safeText(feed && feed.title) || "Podcast";
@@ -415,7 +459,16 @@ function createPlayer(feed) {
   var initial = findItemById(items, savedId) || first;
 
   var audio = els.audio;
-  audio.playbackRate = 1.0;
+  var oldIOS = isOldIOS();
+  var needsGestureSrc = oldIOS;
+  if (oldIOS) {
+    audio.setAttribute("controls", "controls");
+    audio.setAttribute("preload", "auto");
+    if (els.playHint) {
+      els.playHint.removeAttribute("hidden");
+      els.playHint.style.display = "block";
+    }
+  }
 
   function allEpisodeIds() {
     var ids = [];
@@ -524,23 +577,25 @@ function createPlayer(feed) {
     var url = ensureAudioUrl(getEnclosure(item));
     setDownloadUrl(url);
 
-    var previousSrc = audio.currentSrc || "";
+    var previousSrc = audio.getAttribute("src") || audio.currentSrc || "";
+    audio.setAttribute("src", url);
     audio.src = url;
-    try {
-      audio.load();
-    } catch (e) {}
 
     renderList(items, activeId);
 
     function restore() {
       if (audio.removeEventListener) {
         audio.removeEventListener("loadedmetadata", restore, false);
-      } else {
+      } else if (audio.detachEvent) {
         audio.detachEvent("onloadedmetadata", restore);
       }
+      // Seeking before play() often kills audio on iOS 7.
+      if (oldIOS) return;
       var t = readLastTime(activeId);
       if (t > 0 && isNum(audio.duration)) {
-        audio.currentTime = clamp(t, 0, Math.max(0, audio.duration - 0.5));
+        try {
+          audio.currentTime = clamp(t, 0, Math.max(0, audio.duration - 0.5));
+        } catch (e) {}
       }
     }
     if (audio.addEventListener) {
@@ -556,8 +611,12 @@ function createPlayer(feed) {
       setPlayState(false);
     }
 
-    // Play in the same call stack as the tap so iOS 7 allows playback.
-    if (autoplay) tryPlay(audio);
+    if (autoplay) {
+      needsGestureSrc = false;
+      tryPlay(audio);
+    } else if (oldIOS) {
+      needsGestureSrc = true;
+    }
   }
 
   function loadEpisodeById(id, opts) {
@@ -609,11 +668,24 @@ function createPlayer(feed) {
     else if (el.attachEvent) el.attachEvent("on" + type, fn);
   }
 
-  on(els.btnPlay, "click", function () {
-    if (!audio.src) return;
-    if (audio.paused) tryPlay(audio);
-    else audio.pause();
-  });
+  function playOrPause() {
+    if (!activeItem) return;
+    var url = getEnclosure(activeItem);
+    if (!url) return;
+    if (audio.paused) {
+      // iOS 7 only unlocks playback if src is set in the same tap as play().
+      if (needsGestureSrc || !audio.getAttribute("src")) {
+        audio.setAttribute("src", url);
+        audio.src = url;
+        needsGestureSrc = false;
+      }
+      tryPlay(audio);
+    } else {
+      audio.pause();
+    }
+  }
+
+  bindTap(els.btnPlay, playOrPause);
 
   on(els.btnBack, "click", function () {
     audio.currentTime = Math.max(0, (audio.currentTime || 0) - 15);
@@ -633,7 +705,7 @@ function createPlayer(feed) {
     ensureSleepIntervalRunning();
   });
 
-  on(els.btnRandom, "click", function () {
+  bindTap(els.btnRandom, function () {
     var id = pickRandomEpisodeId();
     if (id) loadEpisodeById(id, { autoplay: true });
   });
@@ -678,6 +750,15 @@ function createPlayer(feed) {
     setPlayState(false);
   });
   on(audio, "ended", function () {
+    setPlayState(false);
+  });
+  on(audio, "error", function () {
+    var code = audio.error ? audio.error.code : 0;
+    var msg = "Playback failed";
+    if (code === 4) msg = "This file can't play in this browser";
+    else if (code === 2) msg = "Network error loading audio";
+    else if (code === 3) msg = "Audio decode error";
+    els.episodeSub.textContent = msg;
     setPlayState(false);
   });
 
